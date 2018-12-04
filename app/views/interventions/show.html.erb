@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @intervention.status %>
+</p>
+
+<p>
+  <strong>Date intervention:</strong>
+  <%= @intervention.date_intervention %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @intervention.user %>
+</p>
+
+<p>
+  <strong>Users speciality:</strong>
+  <%= @intervention.users_speciality %>
+</p>
+
+<%= link_to 'Edit', edit_intervention_path(@intervention) %> |
+<%= link_to 'Back', interventions_path %>

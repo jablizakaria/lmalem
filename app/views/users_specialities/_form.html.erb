@@ -1,0 +1,21 @@
+
+<%= simple_form_for(@users_speciality) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :description %>
+    <%= f.input :avg_punctuation %>
+    <%= f.input :avg_punctuation %>
+    <%= f.input :avg_efficacy %>
+    <%= f.input :avg_efficacy %>
+    <%= f.input :avg_behaviour %>
+    <%= f.input :avg_behaviour %>
+    <%= f.association :user %>
+    <%= f.association :speciality %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

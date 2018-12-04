@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users Specialities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Avg punctuation</th>
+      <th>Avg punctuation</th>
+      <th>Avg efficacy</th>
+      <th>Avg efficacy</th>
+      <th>Avg behaviour</th>
+      <th>Avg behaviour</th>
+      <th>User</th>
+      <th>Speciality</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_specialities.each do |users_speciality| %>
+      <tr>
+        <td><%= users_speciality.description %></td>
+        <td><%= users_speciality.avg_punctuation %></td>
+        <td><%= users_speciality.avg_punctuation %></td>
+        <td><%= users_speciality.avg_efficacy %></td>
+        <td><%= users_speciality.avg_efficacy %></td>
+        <td><%= users_speciality.avg_behaviour %></td>
+        <td><%= users_speciality.avg_behaviour %></td>
+        <td><%= users_speciality.user %></td>
+        <td><%= users_speciality.speciality %></td>
+        <td><%= link_to 'Show', users_speciality %></td>
+        <td><%= link_to 'Edit', edit_users_speciality_path(users_speciality) %></td>
+        <td><%= link_to 'Destroy', users_speciality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Users Speciality', new_users_speciality_path %>

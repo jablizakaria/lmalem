@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_153411) do
+ActiveRecord::Schema.define(version: 2018_12_04_105915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "interventions", force: :cascade do |t|
+    t.string "status"
+    t.date "date_intervention"
+    t.bigint "user_id"
+    t.bigint "users_speciality_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_interventions_on_user_id"
+    t.index ["users_speciality_id"], name: "index_interventions_on_users_speciality_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.decimal "puntctuation"
+    t.decimal "efficacy"
+    t.decimal "behaviour"
+    t.text "commentary"
+    t.bigint "user_id"
+    t.bigint "users_speciality_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["users_speciality_id"], name: "index_reviews_on_users_speciality_id"
+  end
+
+  create_table "specialities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +58,23 @@ ActiveRecord::Schema.define(version: 2018_12_03_153411) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_specialities", force: :cascade do |t|
+    t.text "description"
+    t.decimal "avg_punctuation"
+    t.decimal "avg_efficacy"
+    t.decimal "avg_behaviour"
+    t.bigint "user_id"
+    t.bigint "speciality_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["speciality_id"], name: "index_users_specialities_on_speciality_id"
+    t.index ["user_id"], name: "index_users_specialities_on_user_id"
+  end
+
+  add_foreign_key "interventions", "users"
+  add_foreign_key "interventions", "users_specialities"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "users_specialities"
+  add_foreign_key "users_specialities", "specialities"
+  add_foreign_key "users_specialities", "users"
 end
