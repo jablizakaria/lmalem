@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Ajouté Spécialité", specialities_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
@@ -25,12 +25,12 @@
               <% end %>
             </li>
             <li>
-              <%= link_to user_profile_edit_path(current_user.id) do %>
+              <%= link_to edit_user_registration_path do %>
                <i class="fa fa-lock"></i> <%= t(".settings", default: "Securité") %>
               <% end %>
             </li>
             <li>
-              <%= link_to user_profile_edit_path(current_user.id) do %>
+              <%= link_to users_specialities_path do %>
                <i class="fal fa-id-card"></i> <%= t(".profile", default: "Mes Spécialités") %>
               <% end %>
             </li>
