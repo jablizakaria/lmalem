@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :interventions
-  resources :reviews
-  resources :users_specialities
+  resources :users_specialities do
+      resources :reviews
+  end
   resources :specialities
   devise_for :users
   root to: 'pages#home'
