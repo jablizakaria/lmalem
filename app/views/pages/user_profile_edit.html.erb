@@ -1,6 +1,6 @@
 <%= simple_form_for @user, :url => user_profile_update_path, :method => :patch do |f|%>
   <%= f.input :username %>
   <%= f.input :city %>
-  <%= f.input :address %>
+  <%= f.input :address, id: 'user_address'%>
   <%= f.submit %>
 <% end %>
