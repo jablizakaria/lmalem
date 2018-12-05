@@ -4,28 +4,31 @@ class UsersSpecialitiesController < ApplicationController
   # GET /users_specialities
   # GET /users_specialities.json
   def index
-    @users_specialities = UsersSpeciality.all
+    @users_specialities = policy_scope(UsersSpeciality)
   end
 
   # GET /users_specialities/1
   # GET /users_specialities/1.json
   def show
+    authorize @users_speciality
   end
 
   # GET /users_specialities/new
   def new
     @users_speciality = UsersSpeciality.new
+    authorize @users_speciality
   end
 
   # GET /users_specialities/1/edit
   def edit
+  authorize @users_speciality
   end
 
   # POST /users_specialities
   # POST /users_specialities.json
   def create
     @users_speciality = UsersSpeciality.new(users_speciality_params)
-
+    authorize @users_speciality
     respond_to do |format|
       if @users_speciality.save
         format.html { redirect_to @users_speciality, notice: 'Users speciality was successfully created.' }
@@ -40,6 +43,7 @@ class UsersSpecialitiesController < ApplicationController
   # PATCH/PUT /users_specialities/1
   # PATCH/PUT /users_specialities/1.json
   def update
+    authorize @users_speciality
     respond_to do |format|
       if @users_speciality.update(users_speciality_params)
         format.html { redirect_to @users_speciality, notice: 'Users speciality was successfully updated.' }
@@ -54,6 +58,7 @@ class UsersSpecialitiesController < ApplicationController
   # DELETE /users_specialities/1
   # DELETE /users_specialities/1.json
   def destroy
+    authorize @users_speciality
     @users_speciality.destroy
     respond_to do |format|
       format.html { redirect_to users_specialities_url, notice: 'Users speciality was successfully destroyed.' }
