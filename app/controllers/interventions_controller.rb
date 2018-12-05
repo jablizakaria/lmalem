@@ -4,7 +4,7 @@ class InterventionsController < ApplicationController
   # GET /interventions
   # GET /interventions.json
   def index
-    @interventions = Intervention.all
+    @interventions = policy_scope(Intervention)
   end
 
   # GET /interventions/1
@@ -15,6 +15,7 @@ class InterventionsController < ApplicationController
   # GET /interventions/new
   def new
     @intervention = Intervention.new
+    authorize @intervention
   end
 
   # GET /interventions/1/edit
@@ -25,7 +26,7 @@ class InterventionsController < ApplicationController
   # POST /interventions.json
   def create
     @intervention = Intervention.new(intervention_params)
-
+    authorize @intervention
     respond_to do |format|
       if @intervention.save
         format.html { redirect_to @intervention, notice: 'Intervention was successfully created.' }
@@ -65,6 +66,7 @@ class InterventionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_intervention
       @intervention = Intervention.find(params[:id])
+      authorize @intervention
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
