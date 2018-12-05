@@ -5,7 +5,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 
 
-const addressInput = document.getElementById('address');
+const addressInput = document.getElementById('user_address');
 
 if (addressInput) {
   const places = require('places.js');
