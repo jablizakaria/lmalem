@@ -25,7 +25,7 @@ class UsersSpecialitiesController < ApplicationController
   # POST /users_specialities.json
   def create
     @users_speciality = UsersSpeciality.new(users_speciality_params)
-
+    @users_speciality.user = current_user
     respond_to do |format|
       if @users_speciality.save
         format.html { redirect_to @users_speciality, notice: 'Users speciality was successfully created.' }
