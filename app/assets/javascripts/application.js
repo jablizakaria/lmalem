@@ -2,7 +2,6 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require jquery-ui/datepicker
-//= require jquery-ui/slider
 //= require toastr
 //= require moment
 //= require fullcalendar
