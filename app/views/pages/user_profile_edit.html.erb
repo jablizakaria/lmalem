@@ -1,6 +1,86 @@
+<%= content_for :header do %>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+<% end %>
+
 <%= simple_form_for @user, :url => user_profile_update_path, :method => :patch do |f|%>
   <%= f.input :username %>
   <%= f.input :city %>
-  <%= f.input :address %>
+  <%= f.input :address, id: 'user_address'%>
   <%= f.submit %>
+
 <% end %>
+
+<style>
+
+#marker {
+    background-image: url('https://www.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+</style>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-lat = "<%= @user.latitude %>"
+  data-lng = "<%= @user.longitude %>"
+></div>
+
+<%= content_for :scripts do %>
+
+<!--   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' /> -->
+
+  <script>
+  mapboxgl.accessToken = "<%= ENV['MAPBOX_API_KEY'] %>";
+  const mapItem = document.getElementById("map");
+  const lat = parseFloat(mapItem.dataset.lat);
+  const lng = parseFloat(mapItem.dataset.lng);
+  console.log(lat)
+  var map = new mapboxgl.Map({
+      container: 'map',
+      //style: 'mapbox://styles/mapbox/satellite-v9',
+      style: 'mapbox://styles/mapbox/streets-v9',
+      center: [lng,lat ],
+
+      zoom: 13
+  });
+
+
+// create the popup
+var popup = new mapboxgl.Popup({ offset: 25 })
+    .setText('Construction on the Washington Monument began in 1848.');
+
+// create DOM element for the marker
+var el = document.createElement('div');
+el.id = 'marker';
+
+// create the marker
+var monument = [lng,lat ];
+new mapboxgl.Marker(el)
+    .setLngLat(monument)
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
+
+  map.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken
+  }));
+  </script>
+<% end %>
+
+
+
+
+

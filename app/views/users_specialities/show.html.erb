@@ -37,12 +37,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @users_speciality.user %>
+  <%= @users_speciality.user.email %>
 </p>
 
 <p>
   <strong>Speciality:</strong>
-  <%= @users_speciality.speciality %>
+  <%= @users_speciality.speciality.name %>
 </p>
 
 <%= link_to 'Edit', edit_users_speciality_path(@users_speciality) %> |

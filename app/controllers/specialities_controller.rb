@@ -4,7 +4,7 @@ class SpecialitiesController < ApplicationController
   # GET /specialities
   # GET /specialities.json
   def index
-    @specialities = Speciality.all
+    @specialities = policy_scope(Speciality)
   end
 
   # GET /specialities/1
@@ -15,6 +15,8 @@ class SpecialitiesController < ApplicationController
   # GET /specialities/new
   def new
     @speciality = Speciality.new
+    authorize @speciality
+
   end
 
   # GET /specialities/1/edit
@@ -25,7 +27,7 @@ class SpecialitiesController < ApplicationController
   # POST /specialities.json
   def create
     @speciality = Speciality.new(speciality_params)
-
+    authorize @speciality
     respond_to do |format|
       if @speciality.save
         format.html { redirect_to @speciality, notice: 'Speciality was successfully created.' }
@@ -65,6 +67,7 @@ class SpecialitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_speciality
       @speciality = Speciality.find(params[:id])
+      authorize @speciality
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
