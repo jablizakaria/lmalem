@@ -28,11 +28,8 @@ class UsersSpecialitiesController < ApplicationController
   # POST /users_specialities.json
   def create
     @users_speciality = UsersSpeciality.new(users_speciality_params)
-<<<<<<< HEAD
     @users_speciality.user = current_user
-=======
     authorize @users_speciality
->>>>>>> 036dbaeb6aaad0a10fd966cbb700e20ae091e880
     respond_to do |format|
       if @users_speciality.save
         format.html { redirect_to @users_speciality, notice: 'Users speciality was successfully created.' }
