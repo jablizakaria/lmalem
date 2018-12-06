@@ -10,6 +10,24 @@
   <%= f.submit %>
 
 <% end %>
+
+<style>
+
+#marker {
+    background-image: url('https://www.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+</style>
+
 <div
   id="map"
   style="width: 100%;
@@ -22,8 +40,8 @@
 
 <%= content_for :scripts do %>
 
-  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
-  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
+<!--   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' /> -->
 
   <script>
   mapboxgl.accessToken = "<%= ENV['MAPBOX_API_KEY'] %>";
@@ -33,11 +51,28 @@
   console.log(lat)
   var map = new mapboxgl.Map({
       container: 'map',
+      //style: 'mapbox://styles/mapbox/satellite-v9',
       style: 'mapbox://styles/mapbox/streets-v9',
       center: [lng,lat ],
 
       zoom: 13
   });
+
+
+// create the popup
+var popup = new mapboxgl.Popup({ offset: 25 })
+    .setText('Construction on the Washington Monument began in 1848.');
+
+// create DOM element for the marker
+var el = document.createElement('div');
+el.id = 'marker';
+
+// create the marker
+var monument = [lng,lat ];
+new mapboxgl.Marker(el)
+    .setLngLat(monument)
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
 
   map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken
