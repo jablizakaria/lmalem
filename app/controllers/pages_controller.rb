@@ -20,7 +20,6 @@ class PagesController < ApplicationController
     render 'user_profile_edit'
   end
 
-
   def search
     # STEP 1
     if params[:search_specialite].present? && params[:search_specialite].strip != ""
@@ -44,6 +43,6 @@ class PagesController < ApplicationController
   private
 
   def params_user
-    params.require(:user).permit(:username, :city, :address, :latitude, :longitude, :photo)
+    params.require(:user).permit(:username, :city, :address, :latitude, :longitude, :photo, :first_name, :last_name, :phone_number)
   end
 end

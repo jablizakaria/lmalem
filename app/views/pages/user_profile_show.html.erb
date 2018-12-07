@@ -3,21 +3,38 @@
 <h4>Détails du maalem</h4>
 
 <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
+  <strong>Nom et prénom:</strong>
+  <%= @user.first_name %>, <%= @user.last_name %>
 </p>
 <p>
-  <strong>Adress:</strong>
-  <%= @user.city %>, <%= @user.address %>
+  <strong>Ponctualité</strong>
+  <%= @user.first_name %>
+</p>
+<p>
+  <strong>Efficacité</strong>
+  <%= @user.first_name %>
+</p>
+<p>
+  <strong>Disponibilité</strong>
+  <%= @user.first_name %>
 </p>
 
 <h6>Mes spécialités</h6>
+<%= @user.specialities %>
+<%= @specialities %>
 
+-------------
+
+-----------------
 
 <h6>Coordonnées</h6>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
+</p>
+<p>
+  <strong>Numéro Tél:</strong>
+  <%= @user.phone_number %>
 </p>
 <p>
   <strong>Adress:</strong>

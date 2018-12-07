@@ -4,7 +4,10 @@
 <% end %>
 
 <%= simple_form_for @user, :url => user_profile_update_path, :method => :patch do |f|%>
-  <%= f.input :username %>
+  <%= f.input :email %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :phone_number %>
   <%= f.input :city %>
   <%= f.input :address, id: 'user_address'%>
   <%= f.submit %>
