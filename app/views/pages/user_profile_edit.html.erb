@@ -10,6 +10,9 @@
   <%= f.input :phone_number %>
   <%= f.input :city %>
   <%= f.input :address, id: 'user_address'%>
+    <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+
   <%= f.submit %>
 
 <% end %>
@@ -17,7 +20,7 @@
 <style>
 
 #marker {
-    background-image: url('https://www.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+    background-image: url('http://res.cloudinary.com/deqwsygto/image/upload/c_fill,h_300,w_400/v1544197063/ev6vzhenbk9hlqxzyehy.jpg');
     background-size: cover;
     width: 50px;
     height: 50px;
