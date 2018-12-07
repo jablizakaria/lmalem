@@ -1,5 +1,4 @@
 //= require jquery
-// require bootstrap-sprockets
 //= require rails-ujs
 //= require jquery-ui/datepicker
 // require jquery-ui/slider
@@ -9,6 +8,6 @@
 //= require card
 // require Chart.bundle
 //= require chartkick
-// require cable
+//= require cable
 // require turbolinks
 //= require_tree .

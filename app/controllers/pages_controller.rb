@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     @rooms = User.where(is_admin: true).limit(10)
   end
 
+  def user_profile_show
+    @user = User.find(params[:user_id])
+  end
+
   def user_profile_edit
     @user = User.find(params[:user_id])
   end
@@ -34,12 +38,8 @@ class PagesController < ApplicationController
 
     @arrUsers_specialities = @users_specialities.to_a
 
-
     # STEP 4
-
   end
-
-
 
   private
 
