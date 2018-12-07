@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def user_profile_show
     @user = User.find(params[:user_id])
+    @users_specialities = policy_scope(UsersSpeciality).where(user: @user)
   end
 
   def user_profile_edit

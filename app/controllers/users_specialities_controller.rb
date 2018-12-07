@@ -4,7 +4,7 @@ class UsersSpecialitiesController < ApplicationController
   # GET /users_specialities
   # GET /users_specialities.json
   def index
-    @users_specialities = policy_scope(UsersSpeciality)
+    @users_specialities = policy_scope(UsersSpeciality).where(user: current_user)
   end
 
   # GET /users_specialities/1
