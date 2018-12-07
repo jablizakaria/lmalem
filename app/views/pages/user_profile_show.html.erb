@@ -1,31 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <h4>Détails du maalem</h4>
-
+<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
 <p>
   <strong>Nom et prénom:</strong>
   <%= @user.first_name %>, <%= @user.last_name %>
 </p>
-<p>
-  <strong>Ponctualité</strong>
-  <%= @user.first_name %>
-</p>
-<p>
-  <strong>Efficacité</strong>
-  <%= @user.first_name %>
-</p>
+
 <p>
   <strong>Disponibilité</strong>
   <%= @user.first_name %>
 </p>
 
-<h6>Mes spécialités</h6>
-<%= @user.specialities %>
-<%= @specialities %>
+<h6><strong>Mes spécialités</strong></h6>
 
--------------
+  <% @users_specialities.each do |users_speciality| %>
+   <strong> <%= users_speciality.speciality.name %>
+    <%= users_speciality.description %></strong>
+   <p>Ponctualité <% for i in (0...users_speciality.avg_punctuation.to_i) do %>
+  <i class="fas fa-star"></i>
+<%end %> <%= users_speciality.avg_punctuation %></p>
 
------------------
+   <p>Efficacité <% for i in (0...users_speciality.avg_efficacy.to_i) do %>
+  <i class="fas fa-star"></i>
+<%end %> <%= users_speciality.avg_efficacy %></p>
+
+   <p>avg_behaviour <% for i in (0...users_speciality.avg_behaviour.to_i) do %>
+  <i class="fas fa-star"></i>
+<%end %> <%= users_speciality.avg_behaviour %></p>
+
+
+
+
+  <% end %>
+
+
 
 <h6>Coordonnées</h6>
 <p>
@@ -42,3 +51,6 @@
 </p>
 
 <br>
+
+
+
