@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = User.create([
-  { email: 'zakaria@rbnb.com', encrypted_password: '' },
-  { email: 'mat@rbnb.com', encrypted_password: '' },
-  { email: 'ibrahim@rbnb.com', encrypted_password: '' },
-  { email: 'abdelhadi@rbnb.com', encrypted_password: '' }
+  { email: 'zakaria@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' },
+  { email: 'mat@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' },
+  { email: 'ibrahim@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' },
+  { email: 'abdelhadi@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' }
 ])
 specialities = Speciality.create([
   { name: 'Plomberie', description: 'Plomberie' },
@@ -24,6 +24,20 @@ specialities = Speciality.create([
   { name: 'Vitrerie', description: 'Vitrerie' },
   { name: 'Parquet', description: 'Parquet' },
   { name: 'Parabole', description: 'Parabole' }
+])
+users_specialities = UsersSpeciality.create([
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 4, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 4, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 }
 ])
 interventions = Intervention.create([
   { status: 'confirmed', users_speciality_id: 3, user_id: 3 },
@@ -51,19 +65,4 @@ reviews = Review.create([
   { puntctuation: 4, efficacy: 3, users_speciality_id: 3, behaviour: 5, commentary: "c'est un mec ponctuel", isvalid: true, user_id: 3 },
   { puntctuation: 4, efficacy: 3, users_speciality_id: 3, behaviour: 5, commentary: "travail bien fait", isvalid: true, user_id: 1 },
   { puntctuation: 4, efficacy: 3, users_speciality_id: 3, behaviour: 5, commentary: "c'est un mec sympa", isvalid: true, user_id: 4 },
-])
-
-users_specialities = UsersSpeciality.create([
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'speciality_id 3 shoes41', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 5, description: 'speciality_id 1 people shoes31', isvalid: true, speciality_id: 1, user_id: 3 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'speciality_id1 people shoes32', isvalid: true, speciality_id: 1, user_id: 3 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'speciality_id2 people shoes21', isvalid: true, speciality_id: 2, user_id: 2 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'speciality_id2 people shoes22', isvalid: true, speciality_id: 2, user_id: 2 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'speciality_id4 people shoes12', isvalid: true, speciality_id: 4, user_id: 1 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'speciality_id4 people shoes11', isvalid: true, speciality_id: 4, user_id: 1 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'speciality_id3 people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'speciality_id3 people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'speciality_id3 people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'speciality_id3 people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'speciality_id3 people shoes', isvalid: true, speciality_id: 3, user_id: 4 }
 ])
