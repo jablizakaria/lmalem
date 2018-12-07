@@ -7,12 +7,10 @@
 
      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDbdhrGL62_fFR-hckf74ihwPLkmrZLLSQ&libraries=places"></script>
 
     <%= stylesheet_pack_tag 'application' %>
-     <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-
 
 
     <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
@@ -38,9 +36,9 @@
 
     </div>
 
-    <%= javascript_include_tag 'application' %>
+
     <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag "adress_auto" %>
+    <%= javascript_include_tag 'application' %>
     <%= yield :scripts %>
   </body>
 </html>

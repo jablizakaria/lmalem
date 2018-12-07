@@ -13,6 +13,7 @@
       <%= link_to "Ajouté Spécialité", specialities_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Interventions", interventions_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "User details", user_profile_show_path(current_user.id), class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -60,4 +61,3 @@
     </div>
   </div>
 </div>
-
