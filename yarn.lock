@@ -1097,6 +1097,11 @@ bonjour@^3.5.0:
     multicast-dns "^6.0.1"
     multicast-dns-service-types "^1.1.0"
 
+bootstrap-star-rating@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/bootstrap-star-rating/-/bootstrap-star-rating-4.0.4.tgz#93c8dac195e47e2a8d4e084112fea9a4d9ca1d3f"
+  integrity sha512-/mIsyg5jGeVAgG3tycJPKzznyIeeVon6oxnzaraiHQDypRRWnWHb7QUMS0heFZELa8TIISqI0n0tGV/zurkw9g==
+
 bootstrap@3:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"

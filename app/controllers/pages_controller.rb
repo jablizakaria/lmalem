@@ -25,10 +25,11 @@ class PagesController < ApplicationController
 
     # STEP 2
     if session[:search_specialite] && session[:search_specialite] != ""
-     # @users_specialities = UsersSpeciality.where(active: true).near(session[:loc_search], 5, order: 'distance')
+
+     #@users_specialities = Users.   find_by(description: session[:search_specialite])
      @users_specialities = UsersSpeciality.all
     else
-      #@users_specialities = Room.where(active: true).all
+
       @users_specialities = UsersSpeciality.all
     end
 

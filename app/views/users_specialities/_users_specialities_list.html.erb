@@ -9,7 +9,13 @@
 
         <%= user_speciality.user.email %>
         </br>
-        <%= user_speciality.avg_punctuation%>
+        Punctuation: <%= user_speciality.avg_punctuation%>
+        </br>
+        Efficacy: <%= user_speciality.avg_efficacy%>
+        </br>
+        Behaviour: <%= user_speciality.avg_behaviour%>
+
+        <td><%#= link_to 'Contact Me', user_profile_show_path(user_speciality.user) %></td>
 
 
       </div>
