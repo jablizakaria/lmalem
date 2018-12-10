@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = User.create!([
-  { email: 'zakaria@rbnb.com', password: '123456' },
-  { email: 'mat@rbnb.com', password:  '123456' },
-  { email: 'ibrahim@rbnb.com', password:  '123456' },
-  { email: 'abdelhadi@rbnb.com', password:  '123456' }
+  { email: 'zakaria@rbnb.com', password: '123456', first_name: 'zak', last_name: 'jab', admin: true },
+  { email: 'mat@rbnb.com', password:  '123456', first_name: 'mat', last_name: 'math', admin: true },
+  { email: 'ibrahim@rbnb.com', password:  '123456', first_name: 'ibr', last_name: 'afe', admin: true },
+  { email: 'abdelhadi@rbnb.com', password:  '123456', first_name: 'abd', last_name: 'alam', admin: true },
+  { email: 'user1@rbnb.com', password:  '123456', first_name: 'f_user1', last_name: 'l_user1' },
+  { email: 'user2@rbnb.com', password:  '123456', first_name: 'f_user2', last_name: 'l_user2' }
 ])
 specialities = Speciality.create!([
   { name: 'Plomberie', description: 'Plomberie' },
@@ -26,18 +28,18 @@ specialities = Speciality.create!([
   { name: 'Parabole', description: 'Parabole' }
 ])
 users_specialities = UsersSpeciality.create!([
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 4 },
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 3 },
   { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 2 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 8, user_id: 2 },
   { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 4, user_id: 1 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 4, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 7, user_id: 1 },
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 }
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 6, user_id: 5 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 5, user_id: 4 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 6 }
 ])
 interventions = Intervention.create!([
   { status: 'confirmed', users_speciality_id: 3, user_id: 3 },
