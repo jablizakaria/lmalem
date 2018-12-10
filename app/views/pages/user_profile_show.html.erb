@@ -20,6 +20,43 @@
 
 <h6><strong>Mes spécialités</strong></h6>
 
+
+-----------------------------
+<table>
+  <thead>
+    <tr>
+      <th>Spécialité</th>
+      <th>Description</th>
+      <th>Avg punctuation</th>
+      <th>Avg efficacy</th>
+      <th>Avg behaviour</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_specialities.each do |users_speciality| %>
+      <tr>
+        <td><strong> <%= users_speciality.speciality.name %></strong></td>
+        <td><%= users_speciality.description %></td>
+        <td><% for i in (0...users_speciality.avg_punctuation.to_i) do %>
+          <i class="fas fa-star"></i>
+            <%end %> <%= users_speciality.avg_punctuation %></td>
+        <td><% for i in (0...users_speciality.avg_efficacy.to_i) do %>
+          <i class="fas fa-star"></i>
+            <%end %> <%= users_speciality.avg_efficacy %></td>
+        <td><% for i in (0...users_speciality.avg_behaviour.to_i) do %>
+            <i class="fas fa-star"></i>
+            <%end %> <%= users_speciality.avg_behaviour %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<br>
+-----------------------------
   <% @users_specialities.each do |users_speciality| %>
    <strong> <%= users_speciality.speciality.name %>
     <%= users_speciality.description %></strong>
@@ -58,11 +95,10 @@
 
 <br>
 
-
 <style>
 
 #marker {
-    background-image: url('http://res.cloudinary.com/deqwsygto/image/upload/c_fill,h_300,w_400/v1544197063/ev6vzhenbk9hlqxzyehy.jpg');
+    background-image: url(<%= cl_image_path @user.photo.url %>);
     background-size: cover;
     width: 50px;
     height: 50px;
