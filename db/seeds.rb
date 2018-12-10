@@ -70,4 +70,3 @@ reviews = Review.create([
   { puntctuation: 4, efficacy: 3, users_speciality_id: 3, behaviour: 5, commentary: "c'est un mec sympa", isvalid: true, user_id: 4 },
 ])
 
-

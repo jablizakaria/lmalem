@@ -1,25 +1,28 @@
 <% users_specialities.each do |user_speciality| %>
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading preview">
-        <%#= image_tag user_speciality.user.photo(:medium) %>
-      </div>
+ <div class="col-md-4">
+   <div class="panel panel-default">
+     <div class="panel-heading preview">
+       <%#= image_tag user_speciality.user.photo(:medium) %>
+     </div>
 
-      <div class="panel-body">
+     <div class="panel-body">
 
-        <%= user_speciality.user.email %>
-        </br>
-        Punctuation: <%= user_speciality.avg_punctuation%>
-        </br>
-        Efficacy: <%= user_speciality.avg_efficacy%>
-        </br>
-        Behaviour: <%= user_speciality.avg_behaviour%>
+       <%= user_speciality.user.email %>
+       </br>
+       Punctuation: <%= user_speciality.avg_punctuation%>
+       </br>
+       Efficacy: <%= user_speciality.avg_efficacy%>
+       </br>
+       Behaviour: <%= user_speciality.avg_behaviour%>
 
-        <td><%#= link_to 'Contact Me', user_profile_show_path(user_speciality.user) %></td>
+       <td><%= link_to 'Contact Me', user_profile_show_path(user_speciality.user) %></td>
 
 
-      </div>
-    </div>
-  </div>
+     </div>
+   </div>
+ </div>
+>>>>>>> master
+
+
 
 <% end %>
