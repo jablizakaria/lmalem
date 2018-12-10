@@ -5,13 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create([
-  { email: 'zakaria@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' },
-  { email: 'mat@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' },
-  { email: 'ibrahim@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' },
-  { email: 'abdelhadi@rbnb.com', encrypted_password: '$2a$11$05qeVyaos1OyriAhllS.Y.R3DbPMJ0rzSsNy2JoHIX6KENzL0i0N.' }
+users = User.create!([
+  { email: 'zakaria@rbnb.com', password: '123456' },
+  { email: 'mat@rbnb.com', password:  '123456' },
+  { email: 'ibrahim@rbnb.com', password:  '123456' },
+  { email: 'abdelhadi@rbnb.com', password:  '123456' }
 ])
-specialities = Speciality.create([
+specialities = Speciality.create!([
   { name: 'Plomberie', description: 'Plomberie' },
   { name: 'platrerie', description: 'platrerie' },
   { name: 'Peinture', description: 'Peinture' },
@@ -25,7 +25,7 @@ specialities = Speciality.create([
   { name: 'Parquet', description: 'Parquet' },
   { name: 'Parabole', description: 'Parabole' }
 ])
-users_specialities = UsersSpeciality.create([
+users_specialities = UsersSpeciality.create!([
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
   { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
@@ -39,7 +39,7 @@ users_specialities = UsersSpeciality.create([
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 }
 ])
-interventions = Intervention.create([
+interventions = Intervention.create!([
   { status: 'confirmed', users_speciality_id: 3, user_id: 3 },
   { status: 'pending', users_speciality_id: 4, user_id: 3 },
   { status: 'confirmed', users_speciality_id: 2, user_id: 3 },
@@ -56,7 +56,7 @@ interventions = Intervention.create([
   { status: 'pending', users_speciality_id: 1, user_id: 2 },
   { status: 'pending', users_speciality_id: 1, user_id: 2 }
 ])
-reviews = Review.create([
+reviews = Review.create!([
   { puntctuation: 5, efficacy: 3, users_speciality_id: 3, behaviour: 5, commentary: "c'est un mec sympa", isvalid: true, user_id: 1 },
   { puntctuation: 3, efficacy: 5, users_speciality_id: 2, behaviour: 5, commentary: "gentil", isvalid: true, user_id: 2 },
   { puntctuation: 2, efficacy: 5, users_speciality_id: 5, behaviour: 5, commentary: "pro", isvalid: true, user_id: 3 },
