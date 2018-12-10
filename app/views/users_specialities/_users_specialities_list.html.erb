@@ -1,28 +1,56 @@
+
+
+
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+
 <% users_specialities.each do |user_speciality| %>
- <div class="col-md-4">
-   <div class="panel panel-default">
-     <div class="panel-heading preview">
-       <%#= image_tag user_speciality.user.photo(:medium) %>
-     </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <% if  ! user_speciality.user.photo.blank?   then %>
 
-     <div class="panel-body">
+      <%= cl_image_tag user_speciality.user.photo   %>
+      <%else %>
 
-       <%= user_speciality.user.email %>
-       </br>
-       Punctuation: <%= user_speciality.avg_punctuation%>
-       </br>
-       Efficacy: <%= user_speciality.avg_efficacy%>
-       </br>
-       Behaviour: <%= user_speciality.avg_behaviour%>
+      <img src="<%= asset_path 'default-user.jpg' %>" style="height:200px"  />
+      <%end %>
 
-       <td><%= link_to 'Contact Me', user_profile_show_path(user_speciality.user) %></td>
+      <div class="caption">
+        <h4><%= user_speciality.user.email %></h4>
+        <p>Punctuation: <%= user_speciality.avg_punctuation%></p>
+        <p>Efficacy: <%= user_speciality.avg_efficacy%></p>
+        <p>Behaviour: <%= user_speciality.avg_behaviour%></p>
 
 
-     </div>
-   </div>
- </div>
->>>>>>> master
-
-
+        <p><%= link_to 'Contact Me', user_profile_show_path(user_speciality.user)  %> <a href="#" class="btn btn-default" role="button">Voir mon profile</a></p>
+      </div>
+    </div>
+  </div>
 
 <% end %>
+
+    </div>
+
+
+    <div role="tabpanel" class="tab-pane" id="settings"> </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
