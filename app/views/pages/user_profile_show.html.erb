@@ -145,7 +145,7 @@
 
 // create the popup
 var popup = new mapboxgl.Popup({ offset: 25 })
-    .setText('Construction on the Washington Monument began in 1848.');
+    .setText('<%= @user.email %>, <%= @user.phone_number %>' );
 
 // create DOM element for the marker
 var el = document.createElement('div');
