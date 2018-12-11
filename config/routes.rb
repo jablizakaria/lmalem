@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :interventions
+
   resources :users_specialities do
       resources :reviews
+      resources :interventions
   end
   resources :specialities
   devise_for :users

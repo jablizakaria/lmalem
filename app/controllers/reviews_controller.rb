@@ -4,31 +4,41 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
+    user_id = @users_speciality.user_id
+    @reviews = policy_scope(Review).where(user_id: user_id).where(users_speciality: params[:users_speciality_id]).order(created_at: :desc)
+    @review = Review.new
   end
 
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    set_review
   end
 
   # GET /reviews/new
   def new
+    @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
     @review = Review.new
+    authorize @review
   end
 
   # GET /reviews/1/edit
   def edit
+    @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
+    set_review
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    @review.users_speciality = UsersSpeciality.find(params[:users_speciality_id])
+    @review.user = current_user
     authorize @review
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to user_profile_show_path(@review.user_id), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
