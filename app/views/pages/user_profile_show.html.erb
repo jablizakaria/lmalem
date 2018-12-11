@@ -1,11 +1,13 @@
+<%= content_for :header do %>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+<% end %>
 
-
-
-
+<%= link_to 'Back', search_path %>
 <p id="notice"><%= notice %></p>
 
 <h4>Détails du maalem</h4>
-<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @user.photo, height: 150, width: 250, crop: :fill %>
 <p>
   <strong>Nom et prénom:</strong>
   <%= @user.first_name %>, <%= @user.last_name %>
@@ -13,31 +15,41 @@
 
 <p>
   <strong>Disponibilité</strong>
-  <%= @user.first_name %>
+
 </p>
 
 <h6><strong>Mes spécialités</strong></h6>
 
-  <% @users_specialities.each do |users_speciality| %>
-   <strong> <%= users_speciality.speciality.name %>
-    <%= users_speciality.description %></strong>
-   <p>Ponctualité <% for i in (0...users_speciality.avg_punctuation.to_i) do %>
-  <i class="fas fa-star"></i>
-<%end %> <%= users_speciality.avg_punctuation %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Spécialité</th>
+      <th>Description</th>
+      <th>Punctuation</th>
+      <th>Efficacitié</th>
+      <th>Behaviour</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-   <p>Efficacité <% for i in (0...users_speciality.avg_efficacy.to_i) do %>
-  <i class="fas fa-star"></i>
-<%end %> <%= users_speciality.avg_efficacy %></p>
-
-   <p>avg_behaviour <% for i in (0...users_speciality.avg_behaviour.to_i) do %>
-  <i class="fas fa-star"></i>
-<%end %> <%= users_speciality.avg_behaviour %></p>
-
-
-
-
-  <% end %>
-
+  <tbody>
+    <% @users_specialities.each do |users_speciality| %>
+      <tr>
+        <td><strong> <%= users_speciality.speciality.name %></strong></td>
+        <td><%= users_speciality.description %></td>
+        <td><% for i in (0...users_speciality.avg_punctuation.to_i) do %>
+          <i class="fas fa-star"></i>
+            <%end %> <%= users_speciality.avg_punctuation %></td>
+        <td><% for i in (0...users_speciality.avg_efficacy.to_i) do %>
+          <i class="fas fa-star"></i>
+            <%end %> <%= users_speciality.avg_efficacy %></td>
+        <td><% for i in (0...users_speciality.avg_behaviour.to_i) do %>
+            <i class="fas fa-star"></i>
+            <%end %> <%= users_speciality.avg_behaviour %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 <h6>Coordonnées</h6>
@@ -56,5 +68,82 @@
 
 <br>
 
+   <% if cl_image_path(@user.photo.url) == nil %>
+   <% imag_profil = image_path("logo.png") %>
+   <% else %>
+    <% imag_profil = cl_image_path(@user.photo.url) %>
+   <% end %>
+
+<style>
+
+#marker {
+    background-image: url(<%= imag_profil %>);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+</style>
 
 
+<div>
+<i class="fas fa-map-marker-alt"></i> Où me trouver ?
+</div>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-lat = "<%= @user.latitude %>"
+  data-lng = "<%= @user.longitude %>"
+></div>
+
+<%= content_for :scripts do %>
+
+<!--   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' /> -->
+
+  <script>
+  mapboxgl.accessToken = "<%= ENV['MAPBOX_API_KEY'] %>";
+  const mapItem = document.getElementById("map");
+  const lat = parseFloat(mapItem.dataset.lat);
+  const lng = parseFloat(mapItem.dataset.lng);
+  console.log(lat)
+  var map = new mapboxgl.Map({
+      container: 'map',
+      //style: 'mapbox://styles/mapbox/satellite-v9',
+      style: 'mapbox://styles/mapbox/streets-v9',
+      center: [lng,lat ],
+
+      zoom: 13
+  });
+
+
+// create the popup
+var popup = new mapboxgl.Popup({ offset: 25 })
+    .setText('<%= @user.first_name %>, <%= @user.last_name %>' );
+
+// create DOM element for the marker
+var el = document.createElement('div');
+el.id = 'marker';
+
+// create the marker
+var monument = [lng,lat ];
+new mapboxgl.Marker(el)
+    .setLngLat(monument)
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
+
+  map.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken
+  }));
+  </script>
+<% end %>
