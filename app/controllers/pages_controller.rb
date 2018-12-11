@@ -28,16 +28,42 @@ class PagesController < ApplicationController
     end
 
     # STEP 2
-    if session[:search_specialite] && session[:search_specialite] != ""
+    if params[:search_specialite] && params[:search_lieu]  && !params[:search_specialite].empty? && !params[:search_lieu].empty?
 
-     #@users_specialities = Users.   find_by(description: session[:search_specialite])
-     @users_specialities = UsersSpeciality.all
-    else
+        @near_users = User.near(params[:search_lieu], 5, order: 'distance')
+
+     @spec=Speciality.find_by_name(params[:search_specialite])
+
+      @users_specialities=UsersSpeciality.where(user_id: @near_users.map {|x| x.id} ).where(speciality_id:  @spec.id)
+
+
+
+    elsif params[:search_specialite] && params[:search_lieu]  && params[:search_specialite].empty? && !params[:search_lieu].empty?
+        @near_users = User.near(params[:search_lieu], 5, order: 'distance')
+        @users_specialities=UsersSpeciality.where(user_id: @near_users.map {|x| x.id} )
+
+
+    elsif params[:search_specialite] && params[:search_lieu]  && !params[:search_specialite].empty? && params[:search_lieu].empty?
+
+      @spec=Speciality.find_by_name(params[:search_specialite])
+      @users_specialities=UsersSpeciality.where(speciality_id:  @spec.id)
+
+
+else
 
       @users_specialities = UsersSpeciality.all
     end
 
     @arrUsers_specialities = @users_specialities.to_a
+
+
+    @markers = @users_specialities.map do |f|
+      {
+        lng: f.user.longitude,
+        lat: f.user.latitude
+      }
+
+    end
 
     # STEP 4
   end

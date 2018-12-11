@@ -1,56 +1,83 @@
-
-
-
-
 <div>
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation" class="active">
+      <a href="#liste" aria-controls="liste" role="tab" data-toggle="tab">Listes</a></li>
 
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    <li role="presentation"><a href="#carte" aria-controls="carte" role="tab" data-toggle="tab">Carte</a></li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
+    <div role="tabpanel" class="tab-pane active" id="liste">
 
-<% users_specialities.each do |user_speciality| %>
-  <div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <% if  ! user_speciality.user.photo.blank?   then %>
+      <% users_specialities.each do |user_speciality| %>
+        <div class="col-sm-4 col-md-3">
+          <div class="thumbnail">
+            <% if !user_speciality.user.photo.blank? then %>
 
-      <%= cl_image_tag user_speciality.user.photo   %>
-      <%else %>
+              <%= cl_image_tag user_speciality.user.photo %>
+            <% else %>
 
-      <img src="<%= asset_path 'default-user.jpg' %>" style="height:200px"  />
-      <%end %>
+              <img src="<%= asset_path 'default-user.jpg' %>" style="height:200px"/>
+            <% end %>
 
-      <div class="caption">
-        <h4><%= user_speciality.user.email %></h4>
-        <p>Punctuation: <%= user_speciality.avg_punctuation%></p>
-        <p>Efficacy: <%= user_speciality.avg_efficacy%></p>
-        <p>Behaviour: <%= user_speciality.avg_behaviour%></p>
+            <div class="caption">
+              <h4><%= user_speciality.user.email %></h4>
+              <p>Punctuation: <%= user_speciality.avg_punctuation %></p>
+              <p>Efficacy: <%= user_speciality.avg_efficacy %></p>
+              <p>Behaviour: <%= user_speciality.avg_behaviour %></p>
 
 
-        <p><%= link_to 'Contact Me', user_profile_show_path(user_speciality.user)  %> <a href="#" class="btn btn-default" role="button">Voir mon profile</a></p>
+              <p><%= link_to 'Contact Me', user_profile_show_path(user_speciality.user) %>
+                <a href="#" class="btn btn-default" role="button">Voir mon profile</a></p>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+
+
+    <div role="tabpanel" class="tab-pane" id="carte">
+      <div id="map" style="width: 1300px; height: 740px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
       </div>
+
     </div>
   </div>
 
-<% end %>
-
-    </div>
 
 
-    <div role="tabpanel" class="tab-pane" id="settings"> </div>
-  </div>
+
 
 </div>
 
+<%= content_for :js_content do %>
+  <%= stylesheet_pack_tag "map" %>
+  <style>
+
+    #marker {
+      background-image: url('https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+  </style>
 
 
+<% end %>
 
+
+<%= content_for :js_content do %>
+  <%= javascript_pack_tag "map" %>
+
+<% end %>
 
 
 
