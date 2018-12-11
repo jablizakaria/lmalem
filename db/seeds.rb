@@ -23,25 +23,42 @@ specialities = Speciality.create!([
   { name: 'Menuiserie de bois', description: 'Menuiserie de bois' },
   { name: "Menuiserie d'aluminium", description: "Menuiserie d'aluminium" },
   { name: 'Carrelage', description: 'Carrelage' },
-  { name: 'Vitrerie', description: 'Vitrerie' },
+  { nahttps://github.com/jablizakaria/lmalem/pull/13/conflictsme: 'Vitrerie', description: 'Vitrerie' },
   { name: 'Parquet', description: 'Parquet' },
   { name: 'Parabole', description: 'Parabole' }
 ])
-users_specialities = UsersSpeciality.create!([
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 3 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 5, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 2 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 8, user_id: 2 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 4, user_id: 1 },
-  { avg_behaviour: 5, avg_efficacy: 5, avg_punctuation: 4, description: 'live in homeless people shoes', isvalid: true, speciality_id: 7, user_id: 1 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 6, user_id: 5 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 5, user_id: 4 },
-  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 6 }
+
+
+users_specialities = UsersSpeciality.create([
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 4, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 5, user_id: 1 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 8, user_id: 1 },
+
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 10, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 5, user_id: 2 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 11, user_id: 2 },
+
+
+
+
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 3 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 3},
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 3 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 10, user_id: 3 },
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 5, user_id: 3},
+  { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 11, user_id: 3 },
+
+
 ])
-interventions = Intervention.create!([
+
+interventions = Intervention.create([
+
   { status: 'confirmed', users_speciality_id: 3, user_id: 3 },
   { status: 'pending', users_speciality_id: 4, user_id: 3 },
   { status: 'confirmed', users_speciality_id: 2, user_id: 3 },
@@ -68,3 +85,4 @@ reviews = Review.create!([
   { puntctuation: 4, efficacy: 3, users_speciality_id: 3, behaviour: 5, commentary: "travail bien fait", isvalid: true, user_id: 1 },
   { puntctuation: 4, efficacy: 3, users_speciality_id: 3, behaviour: 5, commentary: "c'est un mec sympa", isvalid: true, user_id: 4 },
 ])
+

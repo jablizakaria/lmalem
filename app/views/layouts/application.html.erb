@@ -2,24 +2,13 @@
 <html>
   <head>
     <title>Lmalem</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
+      <%= csrf_meta_tags %>
+      <%= action_cable_meta_tag %>
 
-     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_pack_tag 'application' %>
+        <%= yield :css_content %>
 
-
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDbdhrGL62_fFR-hckf74ihwPLkmrZLLSQ&libraries=places"></script>
-
-    <%= stylesheet_pack_tag 'application' %>
-
-
-    <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css">
-
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <%= yield :header %>
   </head>
 
   <body>
@@ -36,17 +25,13 @@
 
     </div>
 
-
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
-    <%= yield :scripts %>
 
-<script type="text/javascript">
-  $(function () {
-   $("#lieu").geocomplete();
- });
+    <%= yield :js_content %>
 
-</script>
+
+
 
   </body>
 </html>

@@ -33,3 +33,12 @@
 
 
 
+<%= content_for :js_content do %>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDbdhrGL62_fFR-hckf74ihwPLkmrZLLSQ&libraries=places"></script>
+<script>
+
+  $(function () {
+    $("#lieu").geocomplete();
+  });
+</script>
+<% end %>

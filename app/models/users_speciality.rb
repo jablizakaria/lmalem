@@ -4,3 +4,4 @@ class UsersSpeciality < ApplicationRecord
   has_many :interventions
   has_many :reviews
 end
+

@@ -36,11 +36,9 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-
 gem 'jquery-ui-rails'
 gem 'toastr-rails', '~> 1.0'
 gem 'aws-sdk', '~> 2.8'
-
 
 gem 'turbolinks', '~> 5'
 gem 'twilio-ruby'
@@ -50,4 +48,3 @@ gem 'stripe', '~> 3.0.0'
 gem 'rails-assets-card', source: 'https://rails-assets.org'
 gem 'omniauth-stripe-connect', '~> 2.10.0'
 gem 'chartkick', '~> 2.2.4'
-
