@@ -46,6 +46,8 @@
         <td><% for i in (0...users_speciality.avg_behaviour.to_i) do %>
             <i class="fas fa-star"></i>
             <%end %> <%= users_speciality.avg_behaviour %></td>
+        <td><%= link_to 'Review', users_speciality_reviews_path(users_speciality.id) %> </td>
+        <td><%= link_to 'New Review', new_users_speciality_review_path(users_speciality.id) %> </td>
       </tr>
     <% end %>
   </tbody>
@@ -68,7 +70,7 @@
 
 <br>
 
-   <% if cl_image_path(@user.photo.url) == nil %>
+   <% if @user.photo.url == nil %>
    <% imag_profil = image_path("logo.png") %>
    <% else %>
     <% imag_profil = cl_image_path(@user.photo.url) %>
