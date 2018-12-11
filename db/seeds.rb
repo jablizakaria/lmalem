@@ -23,7 +23,6 @@ specialities = Speciality.create!([
   { name: 'Menuiserie de bois', description: 'Menuiserie de bois' },
   { name: "Menuiserie d'aluminium", description: "Menuiserie d'aluminium" },
   { name: 'Carrelage', description: 'Carrelage' },
-  { nahttps://github.com/jablizakaria/lmalem/pull/13/conflictsme: 'Vitrerie', description: 'Vitrerie' },
   { name: 'Parquet', description: 'Parquet' },
   { name: 'Parabole', description: 'Parabole' }
 ])
