@@ -1,0 +1,10 @@
+Searching 248 files for "Contact Me"
+
+/home/abdelhadi/code/elalami2/lmalem/app/views/users_specialities/_users_specialities_list.html.erb:
+   16         Behaviour: <%= user_speciality.avg_behaviour%>
+   17
+   18:        <td><%= link_to 'Voir porofil', user_profile_show_path(user_speciality.user) %></td>
+   19
+   20
+
+1 match in 1 file

@@ -6,14 +6,9 @@
   <thead>
     <tr>
       <th>Puntctuation</th>
-      <th>Puntctuation</th>
       <th>Efficacy</th>
-      <th>Efficacy</th>
-      <th>Behaviour</th>
       <th>Behaviour</th>
       <th>Commentary</th>
-      <th>User</th>
-      <th>Users speciality</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,22 +17,21 @@
     <% @reviews.each do |review| %>
       <tr>
         <td><%= review.puntctuation %></td>
-        <td><%= review.puntctuation %></td>
         <td><%= review.efficacy %></td>
-        <td><%= review.efficacy %></td>
-        <td><%= review.behaviour %></td>
         <td><%= review.behaviour %></td>
         <td><%= review.commentary %></td>
-        <td><%= review.user %></td>
-        <td><%= review.users_speciality %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if policy(review).edit? %>
+        <td><%= link_to 'Edit', edit_users_speciality_review_path(review.users_speciality_id,review.id) %></td>
+        <% end %>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Review', new_review_path %>
+
+<h1>New Review</h1>
+<%= render 'form', review: @review %>
+<%= link_to 'Back', users_specialities_path %>

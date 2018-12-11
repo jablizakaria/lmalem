@@ -14,6 +14,7 @@ class InterventionsController < ApplicationController
 
   # GET /interventions/new
   def new
+    @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
     @intervention = Intervention.new
     authorize @intervention
   end
@@ -26,11 +27,13 @@ class InterventionsController < ApplicationController
   # POST /interventions.json
   def create
     @intervention = Intervention.new(intervention_params)
+    @intervention.users_speciality = UsersSpeciality.find(params[:users_speciality_id])
+    @intervention.user = current_user
     authorize @intervention
     respond_to do |format|
       if @intervention.save
-        format.html { redirect_to @intervention, notice: 'Intervention was successfully created.' }
-        format.json { render :show, status: :created, location: @intervention }
+        format.html { redirect_to user_profile_show_path(@intervention.users_speciality.user_id), notice: 'Intervention was successfully created.' }
+        format.json { render :show, status: :created, location: user_profile_show_path(@intervention.users_speciality.user_id) }
       else
         format.html { render :new }
         format.json { render json: @intervention.errors, status: :unprocessable_entity }
