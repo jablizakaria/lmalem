@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
         average_review
         format.html { redirect_to user_profile_show_path(@review.users_speciality.user_id), notice: 'Review was successfully created.' }
       else
+        @users_speciality = @review.users_speciality
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
@@ -57,6 +58,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to user_profile_show_path(@review.users_speciality.user_id), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
+        @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
         format.html { render :edit }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
