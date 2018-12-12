@@ -3,21 +3,22 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
 const mapElement = document.getElementById('map');
 
-if (mapElement) { 
+if (mapElement) {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    
+
     zoom: 2,
-    speed: 0.2, 
-    curve: 1 
+    speed: 0.2,
+    curve: 1
 
   });
 
   const markers = JSON.parse(mapElement.dataset.markers);
 
   markers.forEach((marker) => {
+    console.log(marker.lng)
     new mapboxgl.Marker()
       .setLngLat([marker.lng, marker.lat])
       .addTo(map);
@@ -35,9 +36,9 @@ if (mapElement) {
     });
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
- 
 
 
- 
+
+
 
 }
