@@ -29,10 +29,16 @@
             <% end %>
 
             <div class="caption">
-              <h4><%= user_speciality.user.email %></h4>
-              <p>Punctuation: <%= user_speciality.avg_punctuation %></p>
-              <p>Efficacy: <%= user_speciality.avg_efficacy %></p>
-              <p>Behaviour: <%= user_speciality.avg_behaviour %></p>
+
+              <% ap = user_speciality.avg_punctuation*100/5 %>
+              <% ae = user_speciality.avg_efficacy*100/5 %>
+              <% ab = user_speciality.avg_behaviour*100/5 %>
+              <h4><%= user_speciality.user.first_name %> <%= user_speciality.user.last_name %></h4>
+              <span class="label label-primary">Ponctualité: </span><div class="star-ratings-sprite"><span style="width: <%= ap %>%" class="star-ratings-sprite-rating"></span></div>
+              <span class="label label-primary">Efficacité: </span> <div class="star-ratings-sprite"><span style="width: <%= ae %>%" class="star-ratings-sprite-rating"></span></div>
+              <span class="label label-primary">Comportement:</span><div class="star-ratings-sprite"><span style="width: <%= ab %>%" class="star-ratings-sprite-rating"></span></div>
+
+               <div style="margin-bottom: 25px"> </div>
 
               <p><%= link_to 'Voir profile', user_profile_show_path(user_speciality.user), class: "btn btn-default" %> </p>
             </div>
@@ -77,11 +83,9 @@
 <%= content_for :js_content do %>
   <%= javascript_pack_tag "map" %>
 <script>
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-   e.target // newly activated tab
-  e.relatedTarget // previous active tab
-  document.resize()
-})
+setInterval( function() {
+window.dispatchEvent(new Event('resize'))
+},100)
  </script>
 
 

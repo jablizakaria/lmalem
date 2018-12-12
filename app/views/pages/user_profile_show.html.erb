@@ -1,4 +1,4 @@
-<%= content_for :header do %>
+<%= content_for :css_content do %>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 <% end %>
@@ -6,20 +6,14 @@
 <%= link_to 'Back', search_path %>
 <p id="notice"><%= notice %></p>
 
-<h4>Détails du maalem</h4>
+
 <%= cl_image_tag @user.photo, height: 150, width: 250, crop: :fill %>
 <p>
-  <strong>Nom et prénom:</strong>
-  <%= @user.first_name %>, <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Disponibilité</strong>
+  <strong><%= @user.first_name %>, <%= @user.last_name %></strong>
 
 </p>
 
-<h6><strong>Mes spécialités</strong></h6>
-
+<h6><strong>Spécialités</strong></h6>
 
 
 <table>
@@ -35,29 +29,22 @@
   </thead>
 
   <tbody>
-          <td>
+
     <% @users_specialities.each do |users_speciality| %>
+    <% ap = users_speciality.avg_punctuation*100/5 %>
+    <% ae = users_speciality.avg_efficacy*100/5 %>
+    <% ab = users_speciality.avg_behaviour*100/5 %>
       <tr>
         <td><strong> <%= users_speciality.speciality.name %></strong></td>
         <td><%= users_speciality.description %></td>
-        <td><% for i in (0...users_speciality.avg_punctuation.to_i) do %>
-          <i class="fas fa-star"></i>
-            <%end %> <%= users_speciality.avg_punctuation %></td>
-        <td><% for i in (0...users_speciality.avg_efficacy.to_i) do %>
-          <i class="fas fa-star"></i>
-            <%end %> <%= users_speciality.avg_efficacy %></td>
-        <td><% for i in (0...users_speciality.avg_behaviour.to_i) do %>
-            <i class="fas fa-star"></i>
-            <%end %> <%= users_speciality.avg_behaviour %></td>
+        <td><div class="star-ratings-sprite"><span style="width: <%= ap %>%" class="star-ratings-sprite-rating"></span></div></td>
+        <td><div class="star-ratings-sprite"><span style="width: <%= ae %>%" class="star-ratings-sprite-rating"></span></div></td>
+        <td><div class="star-ratings-sprite"><span style="width: <%= ab %>%" class="star-ratings-sprite-rating"></span></div></td>
         <td><%= link_to 'Review', users_speciality_reviews_path(users_speciality.id) %> </td>
-
-
-             <%= users_speciality.avg_behaviour %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 
 <h6>Coordonnées</h6>
 <p>
@@ -113,7 +100,7 @@
   data-lng = "<%= @user.longitude %>"
 ></div>
 
-<%= content_for :scripts do %>
+<%= content_for :js_content do %>
 
 <!--   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' /> -->
@@ -123,7 +110,7 @@
   const mapItem = document.getElementById("map");
   const lat = parseFloat(mapItem.dataset.lat);
   const lng = parseFloat(mapItem.dataset.lng);
-  console.log(lat)
+
   var map = new mapboxgl.Map({
       container: 'map',
       //style: 'mapbox://styles/mapbox/satellite-v9',
