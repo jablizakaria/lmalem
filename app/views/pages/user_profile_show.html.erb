@@ -21,7 +21,6 @@
 <h6><strong>Mes spécialités</strong></h6>
 
 
-
 <table>
   <thead>
     <tr>
@@ -36,23 +35,18 @@
 
   <tbody>
           <td>
+
     <% @users_specialities.each do |users_speciality| %>
+    <% ap = users_speciality.avg_punctuation*100/5 %>
+    <% ae = users_speciality.avg_efficacy*100/5 %>
+    <% ab = users_speciality.avg_behaviour*100/5 %>
       <tr>
         <td><strong> <%= users_speciality.speciality.name %></strong></td>
         <td><%= users_speciality.description %></td>
-        <td><% for i in (0...users_speciality.avg_punctuation.to_i) do %>
-          <i class="fas fa-star"></i>
-            <%end %> <%= users_speciality.avg_punctuation %></td>
-        <td><% for i in (0...users_speciality.avg_efficacy.to_i) do %>
-          <i class="fas fa-star"></i>
-            <%end %> <%= users_speciality.avg_efficacy %></td>
-        <td><% for i in (0...users_speciality.avg_behaviour.to_i) do %>
-            <i class="fas fa-star"></i>
-            <%end %> <%= users_speciality.avg_behaviour %></td>
+        <td><div class="star-ratings-sprite"><span style="width: <%= ap %>%" class="star-ratings-sprite-rating"></span></div></td>
+        <td><div class="star-ratings-sprite"><span style="width: <%= ae %>%" class="star-ratings-sprite-rating"></span></div></td>
+        <td><div class="star-ratings-sprite"><span style="width: <%= ab %>%" class="star-ratings-sprite-rating"></span></div></td>
         <td><%= link_to 'Review', users_speciality_reviews_path(users_speciality.id) %> </td>
-
-
-             <%= users_speciality.avg_behaviour %></td>
       </tr>
     <% end %>
   </tbody>
