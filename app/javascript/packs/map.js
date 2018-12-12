@@ -35,6 +35,9 @@ if (mapElement) {
     });
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
+ 
 
+
+ 
 
 }
