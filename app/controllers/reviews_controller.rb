@@ -38,6 +38,7 @@ class ReviewsController < ApplicationController
     authorize @review
     respond_to do |format|
       if @review.save
+        average_review
         format.html { redirect_to user_profile_show_path(@review.users_speciality.user_id), notice: 'Review was successfully created.' }
       else
         format.html { render :new }
@@ -52,6 +53,7 @@ class ReviewsController < ApplicationController
     authorize @review
     respond_to do |format|
       if @review.update(review_params)
+        average_review
         format.html { redirect_to user_profile_show_path(@review.users_speciality.user_id), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
@@ -81,5 +83,13 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:puntctuation, :efficacy, :behaviour, :commentary, :user_id, :users_speciality_id)
+    end
+
+    def average_review
+      users_speciality = @review.users_speciality
+      users_speciality.avg_punctuation = Review.where(users_speciality: users_speciality).average(:puntctuation)
+      users_speciality.avg_efficacy = Review.where(users_speciality: users_speciality).average(:efficacy)
+      users_speciality.avg_behaviour = Review.where(users_speciality: users_speciality).average(:behaviour)
+      users_speciality.save
     end
 end

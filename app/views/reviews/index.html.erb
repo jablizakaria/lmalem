@@ -30,8 +30,9 @@
 
 <br>
 
-
+<% if Review.where(user: current_user, users_speciality: @users_speciality)[0].nil? %>
 <h1>New Review</h1>
 <%= render 'form', review: @review %>
-<%= link_to 'Back', users_specialities_path %>
+<%= link_to 'Back', user_profile_show_path(@users_speciality.user_id) %>
+<% end %>
 
