@@ -20,6 +20,8 @@
 
 <h6><strong>Mes spécialités</strong></h6>
 
+
+
 <table>
   <thead>
     <tr>
@@ -33,6 +35,7 @@
   </thead>
 
   <tbody>
+          <td>
     <% @users_specialities.each do |users_speciality| %>
       <tr>
         <td><strong> <%= users_speciality.speciality.name %></strong></td>
@@ -47,7 +50,9 @@
             <i class="fas fa-star"></i>
             <%end %> <%= users_speciality.avg_behaviour %></td>
         <td><%= link_to 'Review', users_speciality_reviews_path(users_speciality.id) %> </td>
-        <td><%= link_to 'New Review', new_users_speciality_review_path(users_speciality.id) %> </td>
+
+
+             <%= users_speciality.avg_behaviour %></td>
       </tr>
     <% end %>
   </tbody>
@@ -149,3 +154,6 @@ new mapboxgl.Marker(el)
   }));
   </script>
 <% end %>
+
+
+

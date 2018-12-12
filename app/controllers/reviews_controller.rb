@@ -5,8 +5,7 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
-    user_id = @users_speciality.user_id
-    @reviews = policy_scope(Review).where(user_id: user_id).where(users_speciality: params[:users_speciality_id]).order(created_at: :desc)
+    @reviews = policy_scope(Review).where(users_speciality: @users_speciality).order(created_at: :desc)
     @review = Review.new
   end
 
@@ -27,6 +26,7 @@ class ReviewsController < ApplicationController
   def edit
     @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
     set_review
+    authorize @review
   end
 
   # POST /reviews
@@ -38,9 +38,10 @@ class ReviewsController < ApplicationController
     authorize @review
     respond_to do |format|
       if @review.save
-        format.html { redirect_to user_profile_show_path(@review.user_id), notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+        average_review
+        format.html { redirect_to user_profile_show_path(@review.users_speciality.user_id), notice: 'Review was successfully created.' }
       else
+        @users_speciality = @review.users_speciality
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
@@ -53,9 +54,11 @@ class ReviewsController < ApplicationController
     authorize @review
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        average_review
+        format.html { redirect_to user_profile_show_path(@review.users_speciality.user_id), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
+        @users_speciality = UsersSpeciality.find(params[:users_speciality_id])
         format.html { render :edit }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
@@ -81,6 +84,14 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:puntctuation, :puntctuation, :efficacy, :efficacy, :behaviour, :behaviour, :commentary, :user_id, :users_speciality_id)
+      params.require(:review).permit(:puntctuation, :efficacy, :behaviour, :commentary, :user_id, :users_speciality_id)
+    end
+
+    def average_review
+      users_speciality = @review.users_speciality
+      users_speciality.avg_punctuation = Review.where(users_speciality: users_speciality).average(:puntctuation)
+      users_speciality.avg_efficacy = Review.where(users_speciality: users_speciality).average(:efficacy)
+      users_speciality.avg_behaviour = Review.where(users_speciality: users_speciality).average(:behaviour)
+      users_speciality.save
     end
 end
