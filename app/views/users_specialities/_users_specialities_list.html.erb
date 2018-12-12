@@ -29,6 +29,7 @@
             <% end %>
 
             <div class="caption">
+
               <% ap = user_speciality.avg_punctuation*100/5 %>
               <% ae = user_speciality.avg_efficacy*100/5 %>
               <% ab = user_speciality.avg_behaviour*100/5 %>
@@ -38,6 +39,7 @@
               <span class="label label-primary">Comportement:</span><div class="star-ratings-sprite"><span style="width: <%= ab %>%" class="star-ratings-sprite-rating"></span></div>
 
                <div style="margin-bottom: 25px"> </div>
+
               <p><%= link_to 'Voir profile', user_profile_show_path(user_speciality.user), class: "btn btn-default" %> </p>
             </div>
           </div>
