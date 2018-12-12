@@ -3,9 +3,12 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-      <a href="#liste" aria-controls="liste" role="tab" data-toggle="tab">Listes</a></li>
+      <a href="#liste" aria-controls="liste" role="tab" data-toggle="tab">Listes</a>
+    </li>
 
-    <li role="presentation"><a href="#carte" aria-controls="carte" role="tab" data-toggle="tab">Carte</a></li>
+    <li role="presentation">
+      <a href="#carte" aria-controls="carte" role="tab" data-toggle="tab">Carte</a>
+    </li>
   </ul>
 
 
@@ -32,8 +35,7 @@
               <p>Behaviour: <%= user_speciality.avg_behaviour %></p>
 
 
-              <p><%= link_to 'Contact Me', user_profile_show_path(user_speciality.user) %>
-                <a href="#" class="btn btn-default" role="button">Voir mon profile</a></p>
+              <p><%= link_to 'Voir profile', user_profile_show_path(user_speciality.user), class: "btn btn-default" %> </p>
             </div>
           </div>
         </div>
@@ -43,7 +45,7 @@
     </div>
 
 
-    <div role="tabpanel" class="tab-pane" id="carte">
+    <div role="tabpanel" class="tab-pane " id="carte">
       <div id="map" style="width: 1300px; height: 740px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
       </div>
@@ -52,12 +54,9 @@
   </div>
 
 
-
-
-
 </div>
 
-<%= content_for :js_content do %>
+<%= content_for :css_content do %>
   <%= stylesheet_pack_tag "map" %>
   <style>
 
@@ -78,6 +77,14 @@
 
 <%= content_for :js_content do %>
   <%= javascript_pack_tag "map" %>
+<script>
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+   e.target // newly activated tab
+  e.relatedTarget // previous active tab
+  document.resize()
+})
+ </script>
+
 
 <% end %>
 

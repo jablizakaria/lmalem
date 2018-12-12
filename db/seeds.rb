@@ -28,7 +28,7 @@ specialities = Speciality.create!([
 ])
 
 
-users_specialities = UsersSpeciality.create([
+users_specialities = UsersSpeciality.create!([
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 1, user_id: 1 },
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 2, user_id: 1 },
   { avg_behaviour: 5, avg_efficacy: 4, avg_punctuation: 2, description: 'live in homeless people shoes', isvalid: true, speciality_id: 3, user_id: 1 },
@@ -56,7 +56,7 @@ users_specialities = UsersSpeciality.create([
 
 ])
 
-interventions = Intervention.create([
+interventions = Intervention.create!([
 
   { status: 'confirmed', users_speciality_id: 3, user_id: 3 },
   { status: 'pending', users_speciality_id: 4, user_id: 3 },
