@@ -16,7 +16,7 @@
       <div class="navbar-wagon-item">
         <div class="hover">
           <span>
-            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>My account
+            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %> <%= current_user.first_name %>
           </span>
           <%= link_to '<i class="fas fa-user"></i>'.html_safe, user_profile_edit_path(current_user.id), class: "social-link" %>
 
@@ -34,9 +34,9 @@
       <div class="navbar-wagon-item">
         <div class="hover">
           <span>
-            Login
+            Se connecter
           </span>
-          <%= link_to '<i class="fas fa-sign-in-alt"></i> Login'.html_safe, new_user_session_path, class: "social-link" %>
+          <%= link_to '<i class="fas fa-sign-in-alt"></i> Se connecter'.html_safe, new_user_session_path, class: "social-link" %>
 
         </div>
 

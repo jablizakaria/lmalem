@@ -1,25 +1,72 @@
-<h2>Sign up</h2>
+<!--
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<%#= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
+    <%#= f.input :email,
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+    <%#= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+    <%#= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%#= f.button :submit, "Sign up" %>
   </div>
-<% end %>
+<%# end %>
+ -->
 
-<%= render "devise/shared/links" %>
+<h2>Sign up</h2>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<div id="login" class="container">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="login well well-small">
+        <div class="center">
+          <%= image_tag "logo.png" %>
+        </div>
+        <!-- <form action="/users/sign_in" style="" class="login-form" id="UserLoginForm" method="post" accept-charset="utf-8"> -->
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+          <div class="control-group">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-user"></i></span>
+                 <%#= f.input :email,label: false,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email", required: "required", placeholder: "Adresse email", maxlength: "255", type: "text", id: "UserUsername" } %>
+              <input name="user[email]" required="required" placeholder="Adresse email" maxlength="255" type="text" id="UserUsername">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-lock"></i></span>
+              <input name="user[password]" required="required" placeholder="Nouveau mot de passe" type="password" id="UserPassword">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-lock"></i></span>
+              <input name="user[password_confirmation]" required="required" placeholder="Nouveau mot de passe" type="password" id="password_confirmation">
+            </div>
+          </div>
+
+
+          <div class="control-group">
+            <input class="btn btn-primary btn-large btn-block" type="submit" value="Créer un compte">
+          </div>
+          <%= render "devise/shared/links" %>
+        <!-- </form> -->
+        <% end %>
+      </div><!--/.login-->
+    </div><!--/.span12-->
+  </div><!--/.row-fluid-->
+</div><!--/.container-->

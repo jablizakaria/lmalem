@@ -1,14 +1,199 @@
-<%= simple_form_for @user, :url => user_profile_update_path, :method => :patch do |f|%>
-  <%= f.input :email %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :phone_number %>
-  <%= f.input :city %>
-  <%= f.input :address, id: 'user_address'%>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+<div class="container">
+   <!-- <div class="row">
+     <div class="col-md-12">
+       <div class="panel">
+         <img class="pic img-circle" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="User photo"/>
+         <div class="username">Username</div>
+        </div>
+     </div>
+     </div> -->
+     <div class="row">
 
-  <%= f.submit %>
+     <div class="col-md-12">
+       <h3  >Modifier profil:</h3>
+        <div class="edit-profile"  style="padding: 11px 292px 0px 1px !important">
+      <!--  <form id="editProfileForm" method="post"> -->
+        <%= simple_form_for @user, :url => user_profile_update_path, :method => :patch do |f|%>
+         <div class="form-group row">
+           <label class="col-xs-3 form-control-label" for="firstName">Nom</label>
+           <div class="col-xs-9">
+            <input name="user[first_name]" type="text" class="form-control" id="user_firstName" placeholder="Nouveau nom" value= <%= @user.first_name %> >
+           </div>
+          </div>
+           <div class="form-group row">
+           <label class="col-xs-3 form-control-label" for="lastName">Prénom</label>
+           <div class="col-xs-9">
+            <input name="user[last_name]" type="text" class="form-control" id="user_last_name" placeholder="Nouveau prénom" value= <%= @user.last_name %>>
+           </div>
+          </div>
 
-<% end %>
+          <div class="form-group row">
+           <label class="col-xs-3 form-control-label" for="lastName">Email</label>
+           <div class="col-xs-9">
+            <input name="user[email]" type="text" class="form-control" id="email" placeholder="Nouveau email" value= <%= @user.email %>>
+           </div>
+          </div>
 
+
+
+
+
+          <div class="form-group row">
+           <label class="col-xs-3 form-control-label" for="lastName">Téléphone</label>
+           <div class="col-xs-9">
+            <input name="user[phone_number]" type="text" class="form-control" id="phone_number" placeholder="Nouveau télephone" value= <%= @user.phone_number %>>
+           </div>
+          </div>
+
+ <div class="form-group row">
+           <label class="col-xs-3 form-control-label" for="lastName">Ville</label>
+           <div class="col-xs-9">
+           <%= f.input_field :city ,placeholder: "Ville" %>
+           </div>
+          </div>
+
+ <div class="form-group row">
+           <label class="col-xs-3 form-control-label" for="lastName">Adresse</label>
+           <div class="col-xs-9">
+           <%= f.input_field :address, id: 'user_address' ,placeholder: "Adresse"%>
+           </div>
+          </div>
+ <div class="form-group row">
+           <label class="col-xs-3 form-control-label" for="lastName">Logo</label>
+           <div class="col-xs-9">
+
+       <%= f.input_field :photo ,placeholder: "Logo" ,input_html: { class: 'btn btn-default btn-file' } %>
+
+
+           </div>
+          </div>
+
+
+            <%= f.input_field  :photo_cache, as: :hidden %>
+
+
+
+           <div class="col-xs-12 button-container">
+           <input class="btn btn-success" type="submit" value="Enregistrer les modifications"/>
+           <input class="btn btn-primary" type="reset" value="Réinitialiser"/>
+           </div>
+      <!--  </form> -->
+      <% end %>
+     </div>
+   </div>
+  </div>
+
+
+
+<style type="text/css">
+  .pic {
+  display: block;
+  width:120px;
+  margin: 0 auto;
+}
+
+.username {
+  font-size:25px;
+  text-align: center;
+}
+
+.form-control-label {
+  margin-top: 6px;
+  padding: 0;
+  text-align:right;
+}
+
+div.col-xs-4 { border: 1px solid red;}
+
+/* Radio buttons */
+.gender label span{
+  position:relative;
+  top:6px;
+  margin-right:-7px;
+  left:-9px;
+}
+.gender input[type='radio'] {
+  opacity: 0;
+  position:absolute;
+  margin-top:5px;
+  margin-left:-18px;
+  width:100%;
+  height:100%;
+  cursor: pointer;
+}
+.gender input[type='radio'] ~ i {
+  position: relative;
+  top: 5px;
+  left: -13px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #B1B1B1;
+   -webkit-transition: 0.6s ease-out 0.3s;
+     -moz-transition: 0.6s ease-out 0.3s;
+     -o-transition: 0.6s ease-out 0.3s;
+     transition: 0.6s ease-out 0.3s;
+}
+.gender input[type='radio']:checked ~ i,
+.gender input[type='radio'] ~ i:hover
+{
+  color:#5F6F81;
+  text-shadow: 1px 1px 4px #000;
+}
+
+.datepicker {
+  opacity: 0;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.edit-profile {
+  border: 1px solid black;
+  padding: 20px !important;
+  border-radius: 10px;
+}
+
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+
+/* make sidebar nav vertical */
+@media (min-width: 992px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+}
+</style>
