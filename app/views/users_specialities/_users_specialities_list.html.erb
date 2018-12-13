@@ -2,7 +2,7 @@
 
    <% users_specialities.each do |user_speciality| %>
 
-   <% if user_speciality.user.photo.url == nil %>
+   <% if user_speciality.user.photo.nil? %>
    <% imag_profil = image_path("default-user.jpg") %>
    <% else %>
    <% imag_profil = cl_image_path(@user.photo.url) %>
