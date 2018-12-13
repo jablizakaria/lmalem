@@ -12,7 +12,7 @@
   <% if !user_speciality.user.photo.blank? then %>
       <%= cl_image_tag user_speciality.user.photo  ,class:avatar-large %>
       <% else %>
-      <img src="<%= asset_path 'default-user.jpg' %>" class="avatar-large"  style="height:200px"/>
+      <img src="<%= asset_path 'default-user.jpg' %>" class="avatar-large"  style="height:150px"/>
       <% end %>
 
          <% ap = user_speciality.avg_punctuation*100/5 %>
