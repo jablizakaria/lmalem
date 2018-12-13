@@ -2,10 +2,10 @@
 
    <% users_specialities.each do |user_speciality| %>
 
-   <% if user_speciality.user.photo.nil? %>
+   <% if user_speciality.user.photo.file.nil? %>
    <% imag_profil = image_path("default-user.jpg") %>
    <% else %>
-   <% imag_profil = cl_image_path(@user.photo.url) %>
+   <% imag_profil = cl_image_path(user_speciality.user.photo) %>
    <% end %>
 
 <div class="message"  style="background: #e1ecf2">
