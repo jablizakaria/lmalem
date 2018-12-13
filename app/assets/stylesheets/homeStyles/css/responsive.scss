@@ -1,0 +1,482 @@
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  /* 1 */
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  /* 2 */
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #header .nav-opener {
+    display: none;
+  }
+}
+
+@media (max-width: 1700px) {
+  .service-sec.style2 .txt-holder {
+    border-bottom: none;
+    padding: 100px 0 0 16.2%;
+  }
+}
+
+@media (max-width: 1650px) {
+  body.boxed-v #wrapper {
+    max-width: 95%;
+  }
+  .service-sec .txt-holder {
+    padding: 77px 0 0 67px;
+  }
+}
+
+@media (max-width: 1550px) {
+  .service-sec.style2 .txt-holder {
+    padding: 70px 0 0 14%;
+  }
+}
+
+@media (max-width: 1500px) {
+  body.boxed-v #wrapper {
+    max-width: 100%;
+  }
+  .service-sec .txt-holder {
+    padding: 50px 0 0 67px;
+  }
+}
+
+@media (max-width: 1450px) {
+  .service-sec.style2 .txt-holder {
+    padding: 50px 0 0 10%;
+  }
+}
+
+@media (max-width: 1350px) {
+  .service-sec .header {
+    margin: 0 0 20px;
+  }
+  .service-sec .service-category {
+    margin: 0 0 40px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .service-sec .txt-holder {
+    padding: 40px 0 0 67px;
+  }
+  .service-sec .service-category {
+    margin: 0 0 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  #header .info-box li {
+    margin: 0 0 0 46px;
+  }
+  .service-list li {
+    padding: 99px 34px 92px;
+  }
+  .service-sec.style2 .txt-holder {
+    padding: 50px 17px 14px 5%;
+  }
+  .service-sec .header {
+    margin: 0 0 10px;
+  }
+  .service-sec .txt-holder {
+    width: 45%;
+    padding: 50px 0 0 50px;
+  }
+  .service-sec .img-holder {
+    width: 55%;
+  }
+  .service-sec .service-category {
+    margin: 0 0 20px;
+  }
+  .service-sec .heading {
+    font-size: 23px;
+    line-height: 30px;
+  }
+  .testimonail-slider .footer .txt-holder {
+    width: 77%;
+  }
+  .price-holder li {
+    padding: 6px 19px 5px;
+  }
+  .contact-sec {
+    min-height: 778px;
+  }
+  .contact-sec iframe {
+    height: 778px !important;
+  }
+  .contact-sec .txt-holder {
+    padding: 90px 50px;
+  }
+  .contact-sec .contact-form {
+    width: 100%;
+  }
+  #map {
+    height: 788px;
+  }
+}
+
+@media (max-width: 1023px) {
+  img {
+    width: 100%;
+  }
+  #header .info-box li {
+    margin: 0 0 0 15px;
+  }
+  #header .info-box li:first-child {
+    margin: 0;
+  }
+  #header .info-box .icon {
+    font-size: 32px;
+    line-height: 38px;
+    margin: 0 13px 0 0;
+  }
+  #header .info-box .tel,
+  #header .info-box .time {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  #header .info-box .mail,
+  #header .info-box .day {
+    font-size: 10px;
+    line-height: 13px;
+  }
+  #header .home-link {
+    margin: 0 20px 0 0;
+  }
+  #header .btn {
+    font-size: 12px;
+  }
+  .logo {
+    width: 156px;
+  }
+  #nav {
+    font-size: 12px;
+  }
+  #nav ul li {
+    margin: 0 0 0 20px;
+  }
+  #nav ul li:first-child {
+    margin: 0;
+  }
+  .banner .block {
+    width: 100%;
+    padding: 40px 20px;
+  }
+  .banner .block .holder {
+    margin: 0 0 30px;
+  }
+  .main-slider .slide:after {
+    min-height: 570px;
+  }
+  .main-slider h1 {
+    font-size: 45px;
+    line-height: 55px;
+    margin: 0 0 36px;
+  }
+  .main-slider h2 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .abt-sec {
+    padding: 90px 0 0;
+  }
+  .header {
+    margin: 0 0 70px;
+  }
+  .service-list li {
+    padding: 60px 20px;
+  }
+  .service-sec.style2 .txt-holder {
+    padding: 50px;
+  }
+  .service-sec br {
+    display: none;
+  }
+  .service-sec .txt-holder {
+    width: 100%;
+    float: none;
+    padding: 50px;
+  }
+  .service-sec .img-holder {
+    width: 100%;
+    float: none;
+  }
+  .counter-holder {
+    min-height: 360px;
+    padding: 140px 0;
+  }
+  .counter-holder .icon {
+    font-size: 60px;
+  }
+  .counter-holder .counter {
+    font-size: 40px;
+  }
+  .counter-holder .title {
+    font-size: 16px;
+  }
+  .team-sec {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .team-sec .header {
+    margin: 0 0 66px;
+  }
+  .testimonail-sec {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    min-height: 626px;
+  }
+  .testimonail-sec .header {
+    margin: 0 0 60px;
+  }
+  .price-sec {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .price-sec .header {
+    margin: 0 0 60px;
+  }
+  .price-holder {
+    font-size: 11px;
+    padding: 0 0 30px;
+  }
+  .price-holder .price-heading {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .price-holder .price-block {
+    padding: 33px 20px;
+    margin: 0 0 30px;
+  }
+  .price-holder .price-block .price {
+    font-size: 50px;
+    line-height: 62px;
+  }
+  .price-holder .price-block .txt {
+    margin: 0 0 20px;
+  }
+  .price-holder .btn-primary {
+    padding: 21px 25px;
+  }
+  .price-holder li {
+    padding: 6px 10px;
+  }
+  .contact-sec {
+    min-height: 400px;
+  }
+  .contact-sec iframe {
+    height: 400px !important;
+  }
+  .contact-sec .txt-holder {
+    position: static;
+    width: 100%;
+    float: none;
+    padding: 50px;
+  }
+  #map {
+    width: 100%;
+    float: left;
+    height: 500px;
+  }
+}
+
+@media (max-width: 767px) {
+  #header .sticky {
+    position: static;
+    height: auto !important;
+  }
+  #header .header-holder {
+    padding-bottom: 31px;
+  }
+  #header .nav-txt {
+    float: none;
+    width: 100%;
+    display: block;
+  }
+  #header .socail-network {
+    float: none;
+    text-align: left;
+    border: none;
+  }
+  #header .socail-network a {
+    border: none;
+  }
+  #header .btn {
+    float: none !important;
+    margin: 0;
+  }
+  #header .nav-holder {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    right: 0;
+    z-index: 3;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #header .nav-holder.sticky {
+    position: absolute;
+  }
+  #nav {
+    width: 100%;
+    float: none;
+  }
+  #nav ul li {
+    display: block;
+    margin: 0 0 20px;
+  }
+  #nav ul li:first-child {
+    margin: 0 0 20px;
+  }
+  .banner .block {
+    margin: 0 0 40px;
+  }
+  .banner .block .holder {
+    padding: 0;
+  }
+  .main-slider .slide:after {
+    min-height: 450px;
+  }
+  .main-slider .caption-holder {
+    padding: 0 30px;
+  }
+  .main-slider h1 {
+    font-size: 25px;
+    line-height: 35px;
+  }
+  .main-slider .caption {
+    padding: 40px 0 0;
+    margin: 0 0 30px;
+  }
+  .abt-sec.style2 {
+    padding: 50px 0 0;
+  }
+  .service-list li {
+    width: 100%;
+    float: none;
+    border-left: none;
+    border-bottom: 1px solid #f4f4f4;
+  }
+  .service-sec.style2 .txt-holder {
+    padding: 50px 30px;
+  }
+  .service-sec.style2 .service-category li {
+    width: 100%;
+    float: none;
+  }
+  .service-sec .txt-holder {
+    padding: 50px 30px;
+  }
+  .service-sec .service-category {
+    margin: 0 0 10px;
+  }
+  .counter-holder {
+    padding: 70px 0 30px;
+  }
+  .counter-holder .title {
+    margin: 0 0 40px;
+  }
+  .team-sec {
+    padding-top: 50px;
+    padding-bottom: 10px;
+  }
+  .team-sec .header {
+    margin: 0 0 30px;
+  }
+  .team-sec .img-holder {
+    margin: 0 0 30px;
+  }
+  .team-col .socail-network {
+    margin: 0 0 40px;
+  }
+  .team-col p {
+    margin: 0 0 16px;
+  }
+  .testimonail-sec,
+  .price-sec {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .testimonail-sec .header,
+  .price-sec .header {
+    margin: 0 0 40px;
+  }
+  .price-sec {
+    padding-bottom: 20px;
+  }
+  .testimonail-slider .footer .txt-holder {
+    width: 76%;
+  }
+  .price-holder {
+    margin: 0 0 30px;
+  }
+  .offer-sec {
+    padding: 60px 0;
+  }
+  .offer-sec h2 {
+    margin: 0 0 20px;
+  }
+  .offer-sec .btn-primary {
+    float: none;
+  }
+  .contact-sec .txt-holder {
+    padding: 50px 30px;
+  }
+  .contact-sec .heading {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .contact-sec .header {
+    margin: 0 0 10px;
+  }
+  #footer .footer-area {
+    padding: 50px 0 0;
+  }
+  #footer .footer-area address,
+  #footer .footer-area .tel,
+  #footer .footer-area .mail {
+    margin: 0 0 30px;
+  }
+  #footer .footer-area .tel2,
+  #footer .footer-area .mail2 {
+    margin: 0 0 5px;
+  }
+  #footer .footer-holder p {
+    margin: 0 0 20px;
+  }
+  #footer .socail-network {
+    float: none;
+    text-align: left;
+  }
+  #footer .socail-network li {
+    margin: 0 11px 0 0;
+  }
+  .newsletter-block {
+    width: 100%;
+    padding: 20px;
+  }
+  .newsletter-block .newsletter-form .col {
+    width: 100%;
+    padding: 0;
+    float: none;
+  }
+  .newsletter-block .newsletter-form .col:first-child {
+    padding: 0;
+    margin: 0 0 20px;
+  }
+  #map {
+    width: 100%;
+    float: none;
+    height: 290px;
+  }
+}

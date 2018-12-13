@@ -7,10 +7,11 @@
     "bootstrap": "3",
     "bootstrap-star-rating": "^4.0.4",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
+    "jquery": "^2.2.4",
     "jquery-bar-rating": "^1.2.2",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^0.52.0-beta.1",
+    "particles.js": "^2.0.0",
     "places.js": "^1.14.0",
     "select2": "^4.0.6-rc.1"
   },

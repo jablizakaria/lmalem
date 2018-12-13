@@ -1,44 +1,509 @@
-
-<div class="row">
-  <div class="col-md-7 banner">
-    <h1><span class="text-red"><%= image_tag "logo.png", height: 150 %></span></h1>
-  </div>
-</div>
-
-<%= form_tag search_path, method: :get do %>
-  <div class="searchform cf">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-sm-3">
-          <%= select_tag "search_specialite" ,options_from_collection_for_select(
-          Speciality.all.
-            map { |spec| spec }.
-            sort_by { |spec| spec.name },
-          :name, :name)  %>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-          <%= text_field_tag :search_lieu, params[:search_lieu], placeholder: "Où en avez-vous besoin ?", class: "form-control datepicker", id:"lieu"  %>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-          <%= submit_tag "Search"%>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+<%= content_for :home_css_content do %>
+	<%= stylesheet_link_tag 'home'  %>
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700%7CRoboto:400,500,700,900" rel="stylesheet">
 <% end %>
-
-
-
-
+<!-- main of the page -->
+<main id="main">
+	<!-- banner of the page -->
+	<section class="banner" data-scroll-index="0">
+		<!-- main slider of the page -->
+		<div class="main-slider">
+			<!-- slide of the page -->
+			<div class="slide bg-full" style="background-image: url(<%= image_path("4.jpg") %>);"> 
+				<div class="holder">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-7 text-left">
+								<div class="caption">
+									<span class="title text-uppercase">FROM EXPRESS DETAIL TO BE SUCCESS</span>
+									<h2 class="text-uppercase">WE WILL BE HAPPY <br>TO TAKE CARE OF YOUR WORK</h2>
+									<a href="#" class="btn-primary text-uppercase lg-round">Purchase Template</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-5">
+								<!-- block of the page start here -->
+								<div class="block">
+									<div class="holder text-center">
+										<h3 class="heading2 text-uppercase">Book Appointment</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor ever since the 1500s.</p>
+									</div>
+    								<%= render 'shared/appointement_form' %>
+								</div>
+								<!-- block of the page end here -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- slide of the page end -->
+			<!-- slide of the page -->
+			<div class="slide bg-full" style="background-image: url(<%= image_path("2.jpg") %>);"">
+				<div class="holder">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-7 text-left">
+								<div class="caption">
+									<span class="title text-uppercase">FROM EXPRESS DETAIL TO BE SUCCESS</span>
+									<h2 class="text-uppercase">WE WILL BE HAPPY <br>TO TAKE CARE OF YOUR WORK</h2>
+									<a href="#" class="btn-primary text-uppercase lg-round">Purchase Template</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-5">
+								<!-- block of the page start here -->
+								<div class="block">
+									<div class="holder text-center">
+										<h3 class="heading2 text-uppercase">Book Appointment</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor ever since the 1500s.</p>
+									</div>
+    								<%= render 'shared/appointement_form' %>
+								</div>
+								<!-- block of the page end here -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- slide of the page end -->
+			<!-- slide of the page -->
+			<div class="slide bg-full" style="background-image: url(<%= image_path("3.jpg") %>);"">
+				<div class="holder">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-7 text-left">
+								<div class="caption">
+									<span class="title text-uppercase">FROM EXPRESS DETAIL TO BE SUCCESS</span>
+									<h2 class="text-uppercase">WE WILL BE HAPPY <br>TO TAKE CARE OF YOUR WORK</h2>
+									<a href="#" class="btn-primary text-uppercase lg-round">Purchase Template</a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-5">
+								<!-- block of the page start here -->
+								<div class="block">
+									<div class="holder text-center">
+										<h3 class="heading2 text-uppercase">Book Appointment</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor ever since the 1500s.</p>
+									</div>
+    								<%= render 'shared/appointement_form' %>
+								</div>
+								<!-- block of the page end here -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- slide of the page end -->
+		</div>
+		<!-- main slider of the page end -->
+		<a href="#abt" class="next-section smooth text-center round"><i class="fa fa-angle-down"></i></a>
+	</section>
+	<!-- banner of the page end -->
+	<!-- abt sec of the page -->
+	<section id="abt" class="abt-sec style2" data-scroll-index="1">
+		<div class="container">
+			<div class="row">
+				<header class="header col-xs-12 text-center">
+					<h2 class="heading text-uppercase">welcome to Phoenix</h2>
+					<span class="border"><img src="images/border.png" alt="image description" class="img-responsive"></span>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's <br>standard dummy text ever since the 1500s</p>
+				</header>
+			</div>
+		</div>
+		<div class="bg-light border">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<!-- service list of the page -->
+						<ul class="list-unstyled service-list text-center">
+							<li>
+								<span class="icon icon-WineGlass clr1"></span>
+								<h3 class="heading2">Awesome Work</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. text ever since the 1500s</p>
+							</li>
+							<li>
+								<span class="icon icon-Drop clr2"></span>
+								<h3 class="heading2">Organic products</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. text ever since the 1500s</p>
+							</li>
+							<li>
+								<span class="icon icon-Chart clr3"></span>
+								<h3 class="heading2">Great Value</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. text ever since the 1500s</p>
+							</li>
+							<li>
+								<span class="icon icon-Users clr4"></span>
+								<h3 class="heading2">Experienced Team</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. text ever since the 1500s</p>
+							</li>
+							<li>
+								<span class="icon icon-Glasses clr5"></span>
+								<h3 class="heading2">Monthly Inspection</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. text ever since the 1500s</p>
+							</li>
+							<li>
+								<span class="icon icon-ChartUp clr6"></span>
+								<h3 class="heading2">Annual Growth</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. text ever since the 1500s</p>
+							</li>
+						</ul>
+						<!-- service list of the page end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- abt sec of the page end -->
+	<div data-scroll-index="2">
+		<!-- service sec of the page -->
+		<section class="service-sec bg-light">
+			<div class="txt-holder">
+				<header class="header">
+					<span class="title text-uppercase">ready to services you</span>
+					<h2 class="heading text-uppercase">Successful work With <br>successful team</h2>
+					<span class="border2"><img src="images/border2.png" alt="image description" class="img-responsive"></span>
+				</header>
+				<ul class="list-unstyled service-category">
+					<li><i class="fa fa-angle-right"></i> New Marketing Strategy</li>
+					<li><i class="fa fa-angle-right"></i> Future Branding Design</li>
+					<li><i class="fa fa-angle-right"></i> Having a plan feels good</li>
+					<li><i class="fa fa-angle-right"></i> Discover what's possible</li>
+					<li><i class="fa fa-angle-right"></i> People really matter</li>
+				</ul>
+				<a href="#popup3" class="btn-primary smooth lg-round text-center text-uppercase">Book Appointment</a>
+			</div>
+			<div class="img-holder">
+				<img src="http://placehold.it/960x810" alt="image description" class="img-responsive">
+			</div>
+		</section>
+		<!-- service sec of the page end -->
+		<!-- counter holder of the page -->
+		<div class="counter-holder overlay bg-full" style="background-image: url(http://placehold.it/1920x440);">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4">
+						<div class="col">
+							<span class="icon icon-Drop pull-left"></span>
+							<div class="pull-left">
+								<span class="counter">980</span>
+								<span class="title">Clients</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-4">
+						<div class="col">
+							<span class="icon icon-User pull-left"></span>
+							<div class="pull-left">
+								<span class="counter">29</span>
+								<span class="title">Services Team</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-4">
+						<div class="col">
+							<span class="icon icon-ClipboardChart pull-left"></span>
+							<div class="pull-left">
+								<span class="counter">768</span>
+								<span class="title">Great Results</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- counter holder of the page end -->
+		<!-- service sec of the page -->
+		<section class="service-sec style2 bg-light">
+			<div class="txt-holder">
+				<header class="header">
+					<span class="title text-uppercase">OUR SERVICES</span>
+					<h2 class="heading text-uppercase">WE READY NOW TO SERVE <br>YOU IN ALL THE TIME</h2>
+					<span class="border2"><img src="images/border2.png" alt="image description" class="img-responsive"></span>
+				</header>
+				<ul class="list-unstyled service-category">
+					<li><i class="fa fa-angle-right"></i> Highly Customizable</li>
+					<li><i class="fa fa-angle-right"></i> Responsive Design</li>
+					<li><i class="fa fa-angle-right"></i> Pre-Built Pages</li>
+					<li><i class="fa fa-angle-right"></i> Powered Page Builder</li>
+					<li><i class="fa fa-angle-right"></i> Clean Design</li>
+					<li><i class="fa fa-angle-right"></i> Seo Optimised</li>
+					<li><i class="fa fa-angle-right"></i> Extensive Options</li>
+					<li><i class="fa fa-angle-right"></i> Outstanding Support</li>
+					<li><i class="fa fa-angle-right"></i> Top Notch Quality</li>
+					<li><i class="fa fa-angle-right"></i> Great Setting</li>
+				</ul>
+				<a href="#popup3" class="btn-primary smooth lg-round text-center text-uppercase">Book Appointment</a>
+			</div>
+			<div class="img-holder">
+				<img src="http://placehold.it/960x810" alt="image description" class="img-responsive">
+			</div>
+		</section>
+		<!-- service sec of the page end -->
+	</div>
+	<!-- team sec of the page -->
+	<section class="team-sec container" data-scroll-index="3">
+		<div class="row">
+			<header class="header col-xs-12 text-center">
+				<h2 class="heading text-uppercase">our team</h2>
+				<span class="border"><img src="images/border.png" alt="image description" class="img-responsive"></span>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's <br>standard dummy text ever since the 1500s</p>
+			</header>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<!-- team col of the page -->
+				<div class="team-col">
+					<div class="img-holder">
+						<img src="http://placehold.it/360x330" alt="image description" class="img-responsive">
+					</div>
+					<span class="desnation">Co-Founder</span>
+					<strong class="heading2">Ahmed Hamdy</strong>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+					<!-- socail network of the page -->
+					<ul class="list-unstyled socail-network">
+						<li><a href="#" class="round"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="round"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="round"><i class="fa fa-dribbble"></i></a></li>
+					</ul>
+					<!-- socail network of the page end -->
+				</div>
+				<!-- team col of the page end -->
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<!-- team col of the page -->
+				<div class="team-col">
+					<div class="img-holder">
+						<img src="http://placehold.it/360x330" alt="image description" class="img-responsive">
+					</div>
+					<span class="desnation">Founder</span>
+					<strong class="heading2">Morad Hamdy</strong>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+					<!-- socail network of the page -->
+					<ul class="list-unstyled socail-network">
+						<li><a href="#" class="round"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="round"><i class="fa fa-twitter"></i></a></li>
+					</ul>
+					<!-- socail network of the page end -->
+				</div>
+				<!-- team col of the page end -->
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<!-- team col of the page -->
+				<div class="team-col">
+					<div class="img-holder">
+						<img src="http://placehold.it/360x330" alt="image description" class="img-responsive">
+					</div>
+					<span class="desnation">Great Assistant</span>
+					<strong class="heading2">Eslam Samir</strong>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+					<!-- socail network of the page -->
+					<ul class="list-unstyled socail-network">
+						<li><a href="#" class="round"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="round"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="round"><i class="fa fa-dribbble"></i></a></li>
+					</ul>
+					<!-- socail network of the page end -->
+				</div>
+				<!-- team col of the page end -->
+			</div>
+		</div>
+	</section>
+	<!-- service sec of the page end -->
+	<!-- testimonail sec of the page -->
+	<section class="testimonail-sec bg-full" style="background-image: url(images/img08.jpg);" data-scroll-index="4">
+		<div class="container">
+			<div class="row">
+				<header class="header col-xs-12 text-center">
+					<h2 class="heading text-uppercase">testimonials</h2>
+					<span class="border"><img src="images/border.png" alt="image description" class="img-responsive"></span>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's <br>standard dummy text ever since the 1500s</p>
+				</header>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- testimonail slider of the page -->
+					<div class="testimonail-slider">
+						<!-- slide of the page -->
+						<div class="slide">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+							<footer class="footer">
+								<div class="img-holder round">
+									<img src="http://placehold.it/60x60" alt="image description" class="img-responsive">
+								</div>
+								<div class="txt-holder">
+									<strong class="name">William Richardson</strong>
+									<span class="desnation">HR Manager</span>
+								</div>
+							</footer>
+						</div>
+						<!-- slide of the page end -->
+						<!-- slide of the page -->
+						<div class="slide">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+							<footer class="footer">
+								<div class="img-holder round">
+									<img src="http://placehold.it/60x60" alt="image description" class="img-responsive">
+								</div>
+								<div class="txt-holder">
+									<strong class="name">Johnny Depp</strong>
+									<span class="desnation">Developer</span>
+								</div>
+							</footer>
+						</div>
+						<!-- slide of the page end -->
+						<!-- slide of the page -->
+						<div class="slide">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+							<footer class="footer">
+								<div class="img-holder round">
+									<img src="http://placehold.it/60x60" alt="image description" class="img-responsive">
+								</div>
+								<div class="txt-holder">
+									<strong class="name">Mikle feed</strong>
+									<span class="desnation">Actor</span>
+								</div>
+							</footer>
+						</div>
+						<!-- slide of the page end -->
+						<!-- slide of the page -->
+						<div class="slide">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+							<footer class="footer">
+								<div class="img-holder round">
+									<img src="http://placehold.it/60x60" alt="image description" class="img-responsive">
+								</div>
+								<div class="txt-holder">
+									<strong class="name">Mikle feed</strong>
+									<span class="desnation">Actor</span>
+								</div>
+							</footer>
+						</div>
+						<!-- slide of the page end -->
+					</div>
+					<!-- testimonail slider of the page end -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- testimonail sec of the page end -->
+	<!-- price sec of the page -->
+	<section class="price-sec container">
+		<div class="row">
+			<header class="header col-xs-12 text-center">
+				<h2 class="heading text-uppercase">pricing table</h2>
+				<span class="border"><img src="images/border.png" alt="image description" class="img-responsive"></span>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's <br>standard dummy text ever since the 1500s</p>
+			</header>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<!-- price holder of the page -->
+				<ul class="list-unstyled price-holder bg-light">
+					<li class="price-heading text-center text-uppercase">BASIC</li>
+					<li class="price-block text-center">
+						<span class="price">$25</span>
+						<span class="txt text-uppercase">PER MONTH</span>
+						<a href="#popup3" class="btn-primary smooth light lg-round text-uppercase">Book Appointment</a>
+					</li>
+					<li><i class="fa fa-check"></i> CRM Auto-Sync</li>
+					<li><i class="fa fa-check"></i> Click-To-Call Back From The Web</li>
+					<li><i class="fa fa-check"></i> Track Accrued Energy Costs</li>
+					<li><i class="fa fa-check"></i> Power And Predictive Dialing</li>
+					<li><i class="fa fa-check"></i> Speech &amp; Text Analytics</li>
+					<li><i class="fa fa-check"></i> Sales Acceleration Platform</li>
+				</ul>
+				<!-- price holder of the page end -->
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<!-- price holder of the page -->
+				<ul class="list-unstyled price-holder active bg-light">
+					<li class="price-heading text-center text-uppercase">STANDARD</li>
+					<li class="price-block text-center">
+						<span class="price">$50</span>
+						<span class="txt text-uppercase">PER MONTH</span>
+						<a href="#popup3" class="btn-primary smooth lg-round text-uppercase">Book Appointment</a>
+					</li>
+					<li><i class="fa fa-check"></i> CRM Auto-Sync</li>
+					<li><i class="fa fa-check"></i> Click-To-Call Back From The Web</li>
+					<li><i class="fa fa-check"></i> Track Accrued Energy Costs</li>
+					<li><i class="fa fa-check"></i> Power And Predictive Dialing</li>
+					<li><i class="fa fa-check"></i> Speech &amp; Text Analytics</li>
+					<li><i class="fa fa-check"></i> Sales Acceleration Platform</li>
+				</ul>
+				<!-- price holder of the page end -->
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<!-- price holder of the page -->
+				<ul class="list-unstyled price-holder bg-light">
+					<li class="price-heading text-center text-uppercase">PREMIUM</li>
+					<li class="price-block text-center">
+						<span class="price">$70</span>
+						<span class="txt text-uppercase">PER MONTH</span>
+						<a href="#popup3" class="btn-primary smooth lg-round text-uppercase">Book Appointment</a>
+					</li>
+					<li><i class="fa fa-check"></i> CRM Auto-Sync</li>
+					<li><i class="fa fa-check"></i> Click-To-Call Back From The Web</li>
+					<li><i class="fa fa-check"></i> Track Accrued Energy Costs</li>
+					<li><i class="fa fa-check"></i> Power And Predictive Dialing</li>
+					<li><i class="fa fa-check"></i> Speech &amp; Text Analytics</li>
+					<li><i class="fa fa-check"></i> Sales Acceleration Platform</li>
+				</ul>
+				<!-- price holder of the page end -->
+			</div>
+		</div>
+	</section>
+	<!-- price sec of the page end -->
+	<!-- offer sec of the page -->
+	<section class="offer-sec overlay bg-full" style="background-image: url(http://placehold.it/1920x220);">
+		<div class="container">
+			<div class="row">
+				<div class="header col-xs-12 col-sm-8">
+					<span class="title text-uppercase">Are you ready now?</span>
+					<h2 class="text-uppercase">ready to work with us now with 30% discount</h2>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<a href="#popup3" class="btn-primary smooth lg-round text-uppercase">Book Appointment</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- offer sec of the page end -->
+	<!-- contact sec of the page -->
+	<section class="contact-sec" data-scroll-index="5">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810746607!2d-0.2417003159823467!3d51.52877184064793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C+UK!5e0!3m2!1sen!2s!4v1495018437089" width="100%" height="878px" frameborder="0" style="border:0" allowfullscreen></iframe>
+		<div class="txt-holder bg-light">
+			<header class="header">
+				<span class="title text-uppercase">contact us</span>
+				<h2 class="heading text-uppercase">DROP YOUR MESSAGE <br>AND WE WILL GET BACK SOON</h2>
+				<span class="border2"><img src="images/border2.png" alt="image description" class="img-responsive"></span>
+			</header>
+			<!-- contact form of the page -->
+			<div class="contact-form">
+				<form id="contactForm" data-toggle="validator">
+					<fieldset>
+						<div class="form-group">
+							<input type="text" id="txtname" class="form-control lg-round" placeholder="Your Name" required data-error="NEW ERROR MESSAGE">
+						</div>
+						<div class="form-group">
+							<input type="email" id="txtemail" class="form-control lg-round" placeholder="Your Email" required data-error="NEW ERROR MESSAGE">
+						</div>
+						<textarea id="txtmessage" placeholder="Your Message" required data-error="NEW ERROR MESSAGE"></textarea>
+						<div id="msgSubmit" class="form-message hidden"></div>
+						<button class="btn-primary lg-round text-center text-uppercase" type="submit" id="form-submit">Send Now</button>
+					</fieldset>
+				</form>
+			</div>
+			<!-- contact form of the page end -->
+		</div>
+	</section>
+	<!-- contact sec of the page end -->
+</main>
+<!-- main of the page end -->
 
 <%= content_for :js_content do %>
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDbdhrGL62_fFR-hckf74ihwPLkmrZLLSQ&libraries=places"></script>
-<script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDbdhrGL62_fFR-hckf74ihwPLkmrZLLSQ&libraries=places"></script>
+  <script>
 
-  $(function () {
-    $("#lieu").geocomplete();
-  });
-</script>
+    $(function () {
+      $("#lieu").geocomplete();
+    });
+  </script>
 <% end %>
