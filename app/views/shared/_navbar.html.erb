@@ -1,15 +1,17 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "thumb.png", height: 50 %>
+
+    <%= image_tag "logo_malm.png", height: 50 %>
   <% end %>
   <h1>MALM
-    <div class="message">
-      <div class="word3">le plus efficace</div>
-      <div class="word2">le plus proche</div>
-      <div class="word1">.ML</div>
+    <div class="home-message">
+        <div class="word3">le plus efficace</div>
+        <div class="word2">le plus proche</div>
+        <div class="word1">.ML</div>
     </div>
   </h1>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -30,7 +32,9 @@
 
           <%= link_to '<i class="fas fa-toolbox"></i>'.html_safe, users_specialities_path, class: "social-link"  %>
 
-          <%= link_to '<i class="fas fa-sign-out-alt"></i>'.html_safe, destroy_user_session_path, method: :delete, class: "social-link" %>
+          <%= link_to  destroy_user_session_path, method: :delete, class: "social-link" do %>
+            <i class="fas fa-sign-out-alt"></i> Sign out
+          <% end %>
 
         </div>
 
@@ -42,7 +46,7 @@
           <span>
             Se connecter
           </span>
-          <%= link_to '<i class="fas fa-sign-in-alt"></i> Se connecter'.html_safe, new_user_session_path, class: "social-link" %>
+          <%= link_to '<i class="fas fa-sign-in-alt"></i> Se connecter '.html_safe, new_user_session_path, class: "social-link" %>
 
         </div>
 

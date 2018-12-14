@@ -1,4 +1,4 @@
-import "bootstrap-star-rating"
+import "jquery";
 import "bootstrap";
 import '../components/select2';
 import '../components/adress_auto';

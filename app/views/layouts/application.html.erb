@@ -4,32 +4,33 @@
     <title>Lmalem</title>
       <%= csrf_meta_tags %>
       <%= action_cable_meta_tag %>
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= stylesheet_pack_tag 'application' %>
-        <%= yield :css_content %>
+      <%= favicon_link_tag 'logo_malm.png', type: 'image/png' %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_pack_tag 'application' %>
+      <%= yield :home_css_content %> 
+      <%= yield :css_content %>
   </head>
 
-  <body>
+<body style="position: relative;">
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
     <% if current_user %>
       <input type="hidden" id="user_id" value="<%= current_user.id %>">
     <% end %>
-    <div class="container">
-    <div class="row">
-        <%= yield %>
-      </div>
-
+    <div id="wrapper">
+      <%= yield %>
     </div>
+
+    <body style="position: relative;">
+	<!-- <span style="background-image: url(images/02_Phoenix_form-header.jpg); position: absolute; left: -2px; top: -25px; right: 0; bottom: 0; z-index: 99; pointer-events: none; opacity: 0.4;"></span> -->
+	<!-- main container of all the page elements -->
+	<div >
 
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
 
     <%= yield :js_content %>
-
-
-
-
   </body>
 </html>
