@@ -5,5 +5,5 @@
 // require card
 // require chartkick
 // require turbolinks
-// require js/plugins
+//= require js/plugins
 //= require_tree .
