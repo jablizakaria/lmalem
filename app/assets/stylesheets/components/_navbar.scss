@@ -17,158 +17,158 @@
 .navbar-wagon-brand img {
   height: 50px;
 }
-@import url("https://fonts.googleapis.com/css?family=Pacifico");
-@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
-@import url("https://fonts.googleapis.com/css?family=Abril\+Fatface");
-h1 {
-  color: #333;
-  font-family: source sans pro;
-  font-size: 3rem;
-  font-weight: 100;
-  line-height: 1.5;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  width: 550px;
-}
-.message {
-  background-color: #fc0;
-  color: #333;
-  display: block;
-  font-weight: 900;
-  overflow: hidden;
-  position: absolute;
-  padding-left: 0.5rem;
-  top: 0.2rem;
-  left: 150px;
-  -webkit-animation: openclose 5s ease-in-out infinite;
-          animation: openclose 5s ease-in-out infinite;
-}
-.word1 {
-  font-family: Abril Fatface;
-}
-.word2 {
-  font-family: source code pro;
-}
-.word3 {
-  font-family: Permanent Marker;
-}
-@-webkit-keyframes openclose {
-  0% {
-    top: 0.2rem;
-    width: 0;
-  }
-  5% {
-    width: 0;
-  }
-  15% {
-    width: 230px;
-  }
-  30% {
-    top: 0.2rem;
-    width: 530px;
-  }
-  33% {
-    top: 0.2rem;
-    width: 0;
-  }
-  38% {
-    top: -4.5rem;
-    width: 0;
-  }
-  48% {
-    width: 290px;
-  }
-  62% {
-    top: -4.5rem;
-    width: 590px;
-  }
-  66% {
-    top: -4.5rem;
-    width: 0;
-    text-indent: 0;
-  }
-  71% {
-    top: -9rem;
-    width: 0;
-    text-indent: 5px;
-  }
-  86% {
-    width: 385px;
-  }
-  98% {
-    top: -9rem;
-    width: 385px;
-  }
-  99% {
-    text-indent: 5px;
-    top: -9rem;
-    width: 0;
-  }
-  100% {
-    text-indent: 0;
-    top: 0;
-    width: 0;
-  }
-}
-@keyframes openclose {
-  0% {
-    top: 0.2rem;
-    width: 0;
-  }
-  5% {
-    width: 0;
-  }
-  15% {
-    width: 230px;
-  }
-  30% {
-    top: 0.2rem;
-    width: 530px;
-  }
-  33% {
-    top: 0.2rem;
-    width: 0;
-  }
-  38% {
-    top: -4.5rem;
-    width: 0;
-  }
-  48% {
-    width: 290px;
-  }
-  62% {
-    top: -4.5rem;
-    width: 590px;
-  }
-  66% {
-    top: -4.5rem;
-    width: 0;
-    text-indent: 0;
-  }
-  71% {
-    top: -9rem;
-    width: 0;
-    text-indent: 5px;
-  }
-  86% {
-    width: 385px;
-  }
-  98% {
-    top: -9rem;
-    width: 385px;
-  }
-  99% {
-    text-indent: 5px;
-    top: -9rem;
-    width: 0;
-  }
-  100% {
-    text-indent: 0;
-    top: 0;
-    width: 0;
-  }
-}
+// @import url("https://fonts.googleapis.com/css?family=Pacifico");
+// @import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+// @import url("https://fonts.googleapis.com/css?family=Abril\+Fatface");
+// h1 {
+//   color: #333;
+//   font-family: source sans pro;
+//   font-size: 3rem;
+//   font-weight: 100;
+//   line-height: 1.5;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   position: relative;
+//   width: 550px;
+// }
+// .message {
+//   background-color: #fc0;
+//   color: #333;
+//   display: block;
+//   font-weight: 900;
+//   overflow: hidden;
+//   position: absolute;
+//   padding-left: 0.5rem;
+//   top: 0.2rem;
+//   left: 150px;
+//   -webkit-animation: openclose 5s ease-in-out infinite;
+//           animation: openclose 5s ease-in-out infinite;
+// }
+// .word1 {
+//   font-family: Abril Fatface;
+// }
+// .word2 {
+//   font-family: source code pro;
+// }
+// .word3 {
+//   font-family: Permanent Marker;
+// }
+// @-webkit-keyframes openclose {
+//   0% {
+//     top: 0.2rem;
+//     width: 0;
+//   }
+//   5% {
+//     width: 0;
+//   }
+//   15% {
+//     width: 230px;
+//   }
+//   30% {
+//     top: 0.2rem;
+//     width: 530px;
+//   }
+//   33% {
+//     top: 0.2rem;
+//     width: 0;
+//   }
+//   38% {
+//     top: -4.5rem;
+//     width: 0;
+//   }
+//   48% {
+//     width: 290px;
+//   }
+//   62% {
+//     top: -4.5rem;
+//     width: 590px;
+//   }
+//   66% {
+//     top: -4.5rem;
+//     width: 0;
+//     text-indent: 0;
+//   }
+//   71% {
+//     top: -9rem;
+//     width: 0;
+//     text-indent: 5px;
+//   }
+//   86% {
+//     width: 385px;
+//   }
+//   98% {
+//     top: -9rem;
+//     width: 385px;
+//   }
+//   99% {
+//     text-indent: 5px;
+//     top: -9rem;
+//     width: 0;
+//   }
+//   100% {
+//     text-indent: 0;
+//     top: 0;
+//     width: 0;
+//   }
+// }
+// @keyframes openclose {
+//   0% {
+//     top: 0.2rem;
+//     width: 0;
+//   }
+//   5% {
+//     width: 0;
+//   }
+//   15% {
+//     width: 230px;
+//   }
+//   30% {
+//     top: 0.2rem;
+//     width: 530px;
+//   }
+//   33% {
+//     top: 0.2rem;
+//     width: 0;
+//   }
+//   38% {
+//     top: -4.5rem;
+//     width: 0;
+//   }
+//   48% {
+//     width: 290px;
+//   }
+//   62% {
+//     top: -4.5rem;
+//     width: 590px;
+//   }
+//   66% {
+//     top: -4.5rem;
+//     width: 0;
+//     text-indent: 0;
+//   }
+//   71% {
+//     top: -9rem;
+//     width: 0;
+//     text-indent: 5px;
+//   }
+//   86% {
+//     width: 385px;
+//   }
+//   98% {
+//     top: -9rem;
+//     width: 385px;
+//   }
+//   99% {
+//     text-indent: 5px;
+//     top: -9rem;
+//     width: 0;
+//   }
+//   100% {
+//     text-indent: 0;
+//     top: 0;
+//     width: 0;
+//   }
+// }
 
 /* User Avatar */
 .navbar-wagon .avatar {
