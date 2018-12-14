@@ -10,7 +10,11 @@
 
 <div class="message"  style="background: #e1ecf2">
   <% if !user_speciality.user.photo.blank? then %>
-      <%= cl_image_tag user_speciality.user.photo ,class: "avatar-large" ,style: "height:120px" %>
+      <%= cl_image_tag user_speciality.user.photo ,class: "avatar-large" ,style: "
+
+    border-radius:50%;
+    width:150px;
+    height:150px;" %>
       <% else %>
       <img src="<%= asset_path 'default-user.jpg' %>" class="avatar-large"  style="height:150px"/>
       <% end %>
