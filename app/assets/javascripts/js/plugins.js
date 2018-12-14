@@ -527,7 +527,7 @@ f<0&&e<r&&(e=r+1-Math.pow(r-p-f,.8)||0)),{top:e,left:t}},l.prototype.limitPositi
  * Released under the MIT license (LICENSE.txt)
  *
  * Version: 1.1.3
- */
+
 ;(function($, window) {
 	'use strict';
 
@@ -1113,7 +1113,7 @@ f<0&&e<r&&(e=r+1-Math.pow(r-p-f,.8)||0)),{top:e,left:t}},l.prototype.limitPositi
 			selectedClass: 'jcf-selected',
 			scrollClass: 'jcf-scroll-active'
 		}, options);
-		this.init();
+		//this.init();
 	}
 	$.extend(SelectList.prototype, {
 		init: function() {
@@ -1444,12 +1444,13 @@ f<0&&e<r&&(e=r+1-Math.pow(r-p-f,.8)||0)),{top:e,left:t}},l.prototype.limitPositi
 			this.listHolder.off('jcf-pointerdown', this.onPress);
 		}
 	});
-
+ */
 	// helper functions
-	var getPrefixedClasses = function(className, prefixToAdd) {
-		return className ? className.replace(/[\s]*([\S]+)+[\s]*/gi, prefixToAdd + '$1 ') : '';
-	};
-	var makeUnselectable = (function() {
+	// var getPrefixedClasses = function(className, prefixToAdd) {
+	// 	return className ? className.replace(/[\s]*([\S]+)+[\s]*/gi, prefixToAdd + '$1 ') : '';
+	// };
+
+/*  var makeUnselectable = (function() {
 		var unselectableClass = jcf.getOptions().unselectableClass;
 		function preventHandler(e) {
 			e.preventDefault();
@@ -1458,9 +1459,8 @@ f<0&&e<r&&(e=r+1-Math.pow(r-p-f,.8)||0)),{top:e,left:t}},l.prototype.limitPositi
 			node.addClass(unselectableClass).on('selectstart', preventHandler);
 		};
 	}());
-
 }(jQuery, this));
-
+ */
 
 /*!
  * SmoothScroll module
