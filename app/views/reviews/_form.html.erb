@@ -4,14 +4,20 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :puntctuation %>
-    <%= f.input :efficacy %>
-    <%= f.input :behaviour %>
-    <%= f.input :commentary %>
+    <%= f.input :puntctuation, label: "Ponctuation:" %>
+    <%= f.input :efficacy , label: "Efficacité:" %>
+    <%= f.input :behaviour , label: "Comportement:" %>
+    <%= f.input :commentary , label: "Commentaire:" %>
 
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+  <div class="form-actions" style="display: inline;margin-left: 25%; margin-right: 8%;">
+    <%= f.button :submit ,value: "Evaluer" ,class: "btn btn-success" ,style: "margin-top: 5px;margin-bottom:2%"%>
   </div>
+
+<%= link_to 'Annuler', user_profile_show_path(@users_speciality.user_id) , class: "form-actions btn btn-primary" ,style: "margin-top: 5px; margin-top: 1% ;margin-bottom:2%" %>
+
 <% end %>
+
+

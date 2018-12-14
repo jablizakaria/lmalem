@@ -1,15 +1,27 @@
+<%= content_for :css_content do %>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
+     <link href='https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css' rel='stylesheet' />
+
+<% end %>
+
+
+
+<div style="width: 50% ;">
 <p id="notice"><%= notice %></p>
 
-<h1>Reviews</h1>
+<h2>Avis</h2>
 
-<table>
+<table id="myexample2" class="table table-striped table-bordered" style="width:100%  margin-top: 10px">
   <thead>
     <tr>
-      <th>Puntctuation</th>
-      <th>Efficacy</th>
-      <th>Behaviour</th>
-      <th>Commentary</th>
-      <th colspan="3"></th>
+      <th>Ponctuation</th>
+      <th>Efficacité</th>
+      <th>Comportement</th>
+      <th>Commentaire</th>
+      <th style="color: white">Action</th>
+
     </tr>
   </thead>
   <tbody>
@@ -21,6 +33,7 @@
         <td><%= review.commentary %></td>
         <% if policy(review).edit? %>
         <td><%= link_to 'Edit', edit_users_speciality_review_path(review.users_speciality_id,review.id) %></td>
+        <td ></td>
         <% end %>
       </tr>
     <% end %>
@@ -28,11 +41,64 @@
   </tbody>
 </table>
 
-<br>
+<!-- <div class="col-md-6"  style="width: 100%;">
+
+</div> -->
+
+</div>
+
+<br/>
+
+    <div class="row">
+      <div  class="col-md-6" style="background-color: #e3e5e6e6 ">
 
 <% if Review.where(user: current_user, users_speciality: @users_speciality)[0].nil? %>
-<h1>New Review</h1>
+<h1>Nouveau avis</h1>
 <%= render 'form', review: @review %>
 <% end %>
 
-<%= link_to 'Back', user_profile_show_path(@users_speciality.user_id) %>
+
+
+
+      </div>
+</div>
+
+
+
+
+
+
+<script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js'> </script>
+
+<%= content_for :js_content do %>
+
+
+
+<script>
+
+
+  $(document).ready(function() {
+    $('#myexample2').DataTable({
+        "order": [[ 3, "desc" ]]
+    } );
+
+
+} );
+  </script>
+<% end %>
+
+<style>
+  body {
+    background-image: none;
+  }
+
+.container
+{
+
+margin-left: 22%
+}
+
+
+
+</style>

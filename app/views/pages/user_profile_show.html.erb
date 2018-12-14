@@ -1,4 +1,5 @@
 <%= content_for :css_content do %>
+
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -13,7 +14,7 @@
 <%= link_to 'Retour à la liste', search_path ,:class => 'btn btn-success' , :style => 'margin-top: 10px' %>
 <p id="notice"><%= notice %></p>
 
- <% if @user.photo.url == nil %>
+ <% if @user.photo.file.nil? %>
    <% imag_profil = image_path("default-user.jpg") %>
    <% else %>
     <% imag_profil = cl_image_path(@user.photo.url) %>
@@ -77,7 +78,7 @@
         <td><div class="star-ratings-sprite"><span style="width: <%= ap %>%" class="star-ratings-sprite-rating"></span></div></td>
         <td><div class="star-ratings-sprite"><span style="width: <%= ae %>%" class="star-ratings-sprite-rating"></span></div></td>
         <td><div class="star-ratings-sprite"><span style="width: <%= ab %>%" class="star-ratings-sprite-rating"></span></div></td>
-        <td><%= link_to 'Evaluer', users_speciality_reviews_path(users_speciality.id) %> </td>
+        <td><%= link_to 'Laisser un avis', users_speciality_reviews_path(users_speciality.id) %> </td>
       </tr>
     <% end %>
   </tbody>

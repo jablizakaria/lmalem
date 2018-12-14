@@ -10,14 +10,32 @@
 
 <div class="message"  style="background: #e1ecf2">
   <% if !user_speciality.user.photo.blank? then %>
-      <%= cl_image_tag user_speciality.user.photo, class: "avatar-large",  style: "height:150px" %>
+
+      <%= cl_image_tag user_speciality.user.photo ,class: "avatar-large" ,style: "
+
+    border-radius:50%;
+    width:150px;
+    height:150px;" %>
+
       <% else %>
       <img src="<%= asset_path 'default-user.jpg' %>" class="avatar-large"  style="height:150px"/>
       <% end %>
-
+        <% if !user_speciality.avg_punctuation.blank? then %>
          <% ap = user_speciality.avg_punctuation*100/5 %>
+         <% else %>
+         <% ap =0 %>
+         <% end %>
+        <% if !user_speciality.avg_efficacy.blank? then %>
          <% ae = user_speciality.avg_efficacy*100/5 %>
+         <% else %>
+         <% ae =0 %>
+         <% end %>
+        <% if !user_speciality.avg_behaviour.blank? then %>
          <% ab = user_speciality.avg_behaviour*100/5 %>
+         <% else %>
+         <% ab =0 %>
+         <% end %>
+
 
   <div class="message-body">
     <h2><%= user_speciality.user.first_name %> <%= user_speciality.user.last_name %></h2>

@@ -1,14 +1,23 @@
-
 <%= simple_form_for(@users_speciality) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<h3 style="margin-bottom: 5%">Ajouter une spécialitée: </h3>
 
   <div class="form-inputs">
-    <%= f.input :description %>
-    <%= f.association :speciality %>
+    <%= f.input :description ,label:"Description" %>
+    <%= f.association :speciality  , label: "Spécialité" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+
+  <div class="form-actions" style="display: inline;margin-left: 25%; margin-right: 8%;">
+    <%= f.button :submit ,value: "Ajouter" ,class: "btn btn-success" ,style: "margin-top: 5px;margin-bottom: 2%"%>
   </div>
+
+
+
+  <%= link_to 'Annuler', users_specialities_path ,  class: "form-actions btn btn-primary" ,style: "margin-top: 5px; margin-top: 1% ;margin-bottom: 2%" %>
+
+
+
 <% end %>
