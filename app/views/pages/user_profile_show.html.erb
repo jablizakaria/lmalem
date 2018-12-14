@@ -69,9 +69,24 @@
   <tbody>
 
     <% @users_specialities.each do |users_speciality| %>
-    <% ap = users_speciality.avg_punctuation*100/5 %>
-    <% ae = users_speciality.avg_efficacy*100/5 %>
-    <% ab = users_speciality.avg_behaviour*100/5 %>
+
+
+        <% if !users_speciality.avg_punctuation.blank? then %>
+         <% ap = users_speciality.avg_punctuation*100/5 %>
+         <% else %>
+         <% ap =0 %>
+         <% end %>
+        <% if !users_speciality.avg_efficacy.blank? then %>
+         <% ae = users_speciality.avg_efficacy*100/5 %>
+         <% else %>
+         <% ae =0 %>
+         <% end %>
+        <% if !users_speciality.avg_behaviour.blank? then %>
+         <% ab = users_speciality.avg_behaviour*100/5 %>
+         <% else %>
+         <% ab =0 %>
+         <% end %>
+
       <tr>
         <td><strong> <%= users_speciality.speciality.name %></strong></td>
         <td><%= users_speciality.description %></td>
