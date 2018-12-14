@@ -4,6 +4,5 @@
 // require card
 // require chartkick
 // require turbolinks
-// require js/particle
 // require js/plugins
 //= require_tree .

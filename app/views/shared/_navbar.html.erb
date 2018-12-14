@@ -24,7 +24,9 @@
 
           <%= link_to '<i class="fas fa-toolbox"></i>'.html_safe, users_specialities_path, class: "social-link"  %>
 
-          <%= link_to '<i class="fas fa-sign-out-alt"></i>'.html_safe, destroy_user_session_path, method: :delete, class: "social-link" %>
+          <%= link_to  destroy_user_session_path, method: :delete, class: "social-link" do %>
+            <i class="fas fa-sign-out-alt"></i> Sign out
+          <% end %>
 
         </div>
 
@@ -36,7 +38,7 @@
           <span>
             Se connecter
           </span>
-          <%= link_to '<i class="fas fa-sign-in-alt"></i> Se connecter'.html_safe, new_user_session_path, class: "social-link" %>
+          <%= link_to '<i class="fas fa-sign-in-alt"></i> Se connecter '.html_safe, new_user_session_path, class: "social-link" %>
 
         </div>
 

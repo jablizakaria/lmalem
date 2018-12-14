@@ -11,7 +11,7 @@
                 <%= select_tag "search_specialite" ,options_from_collection_for_select(Speciality.all.sort_by { |spec| spec.name },:name, :name), class: "form-control"  %>
             </div>
             <div class="form-group">
-                <%= text_field_tag :search_lieu, params[:search_lieu], placeholder: "Où en avez-vous besoin ?", class: "form-control lg-round", id:"lieu"  %>
+                <%= text_field_tag :search_lieu, params[:search_lieu], placeholder: "Please specify a location ", class: "form-control lg-round", id:"lieu"  %>
             </div>
             <div id="msgSubmit2" class="form-message hidden"></div>
             <%= submit_tag "Search",class: "btn-primary text-uppercase lg-round text-center"%>
