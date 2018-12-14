@@ -1,7 +1,7 @@
 <div class="block">
     <div class="holder text-center">
-        <h3 class="heading2 text-uppercase">Book an appointment</h3>
-        <p>LMALM.COM your best pick, for the best of craftmanship nearby.</p>
+        <h3 class="heading2 text-uppercase">Chercher un Bricoleur</h3>
+        <p>MALM.ML le meilleur annuaire de bricoleurs, Pour un service plus rapide et efficace.</p>
     </div>
     <!-- appointment form of the page -->
     <div class="appointment-form">
@@ -11,10 +11,10 @@
                 <%= select_tag "search_specialite" ,options_from_collection_for_select(Speciality.all.sort_by { |spec| spec.name },:name, :name), class: "form-control"  %>
             </div>
             <div class="form-group">
-                <%= text_field_tag :search_lieu, params[:search_lieu], placeholder: "Please specify a location ", class: "form-control lg-round", id:"lieu"  %>
+                <%= text_field_tag :search_lieu, params[:search_lieu], placeholder: "Où en avez vous besoin? ", class: "form-control lg-round", id:"lieu"  %>
             </div>
             <div id="msgSubmit2" class="form-message hidden"></div>
-            <%= submit_tag "Search",class: "btn-primary text-uppercase lg-round text-center"%>
+            <%= submit_tag "Chercher",class: "btn-primary text-uppercase lg-round text-center"%>
         </fieldset>
         <% end %>
     </div>
