@@ -4,10 +4,11 @@
     <title>Lmalem</title>
       <%= csrf_meta_tags %>
       <%= action_cable_meta_tag %>
+       <%= yield :js_content %>
       <%= favicon_link_tag 'logo_malm.png', type: 'image/png' %>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= stylesheet_pack_tag 'application' %>
-      <%= yield :home_css_content %> 
+      <%= yield :home_css_content %>
       <%= yield :css_content %>
   </head>
 
