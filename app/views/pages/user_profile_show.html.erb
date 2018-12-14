@@ -1,22 +1,58 @@
 <%= content_for :css_content do %>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
+
+     <link href='https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css' rel='stylesheet' />
+
+
+
 <% end %>
 
-<%= link_to 'Back', search_path %>
+<%= link_to 'Retour à la liste', search_path ,:class => 'btn btn-success' , :style => 'margin-top: 10px' %>
 <p id="notice"><%= notice %></p>
 
+ <% if @user.photo.url == nil %>
+   <% imag_profil = image_path("default-user.jpg") %>
+   <% else %>
+    <% imag_profil = cl_image_path(@user.photo.url) %>
+   <% end %>
 
-<%= cl_image_tag @user.photo, height: 150, width: 250, crop: :fill %>
-<p>
-  <strong>Nom et prénom:</strong>
-  <%= @user.first_name %>, <%= @user.last_name %>
-</p>
+<div class="message">
 
-<h6><strong>Spécialités</strong></h6>
+  <%#= cl_image_tag  @user.photo.url, height: 150, width: 250, crop: :fill ,class: "avatar-large"  %>
+   <img class="avatar-large" src="<%= imag_profil %>" height="90px" width="100px"   >
+  <div class="message-name">
+
+  </div>
+  <div class="message-body">
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+
+<div><strong>Email:</strong>
+  <%= @user.email %></div>
 
 
-<table>
+<div><strong>Numéro Tél:</strong>
+  <%= @user.phone_number %></div>
+
+<div><strong>Adress:</strong>
+  <%= @user.city %> <%= @user.address %></div>
+
+
+  </div>
+  <div class="message-status">
+
+  </div>
+</div>
+
+
+<div class="container">
+
+     <div class="row">
+
+     <div class="col-md-8" style="padding-top: 13px;" >
+<table id="myexample" class="table table-striped table-bordered" style="width:100%  margin-top: 10px" >
   <thead>
     <tr>
       <th>Spécialité</th>
@@ -24,7 +60,8 @@
       <th>Punctuation</th>
       <th>Efficacitié</th>
       <th>Behaviour</th>
-      <th colspan="3"></th>
+      <th>Avis</th>
+
     </tr>
   </thead>
 
@@ -40,35 +77,43 @@
         <td><div class="star-ratings-sprite"><span style="width: <%= ap %>%" class="star-ratings-sprite-rating"></span></div></td>
         <td><div class="star-ratings-sprite"><span style="width: <%= ae %>%" class="star-ratings-sprite-rating"></span></div></td>
         <td><div class="star-ratings-sprite"><span style="width: <%= ab %>%" class="star-ratings-sprite-rating"></span></div></td>
-        <td><%= link_to 'Review', users_speciality_reviews_path(users_speciality.id) %> </td>
+        <td><%= link_to 'Evaluer', users_speciality_reviews_path(users_speciality.id) %> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<h6>Coordonnées</h6>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<p>
-  <strong>Numéro Tél:</strong>
-  <%= @user.phone_number %>
-</p>
-<p>
-  <strong>Adress:</strong>
-  <%= @user.city %>, <%= @user.address %>
-</p>
+<div class="col-md-4">
+<div>
+<i class="fas fa-map-marker-alt"></i> Où me trouver ?
+</div>
 
-<br>
+<div
+  id="map"
+  style="width: 500px;
+  height: 500px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-lat = "<%= @user.latitude %>"
+  data-lng = "<%= @user.longitude %>"
+></div>
+</div>
+</div>
+</div>
 
-   <% if @user.photo.url == nil %>
-   <% imag_profil = image_path("logo.png") %>
-   <% else %>
-    <% imag_profil = cl_image_path(@user.photo.url) %>
-   <% end %>
+
+
+
+
+
 
 <style>
+
+body
+{
+  background-image: none;
+}
 
 #marker {
     background-image: url(<%= imag_profil %>);
@@ -86,19 +131,11 @@
 </style>
 
 
-<div>
-<i class="fas fa-map-marker-alt"></i> Où me trouver ?
-</div>
 
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-lat = "<%= @user.latitude %>"
-  data-lng = "<%= @user.longitude %>"
-></div>
+
+
+<script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js'> </script>
 
 <%= content_for :js_content do %>
 
@@ -139,8 +176,79 @@ new mapboxgl.Marker(el)
   map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken
   }));
+
+
+
+
+
+
+  $(document).ready(function() {
+    $('#myexample').DataTable({
+        "order": [[ 3, "desc" ]]
+    } );
+} );
   </script>
 <% end %>
 
 
 
+
+
+<style>
+  .message {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.message:last-child {
+  border-bottom: none;
+}
+.message-body {
+  flex-grow: 1;
+}
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.message-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.message-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.message-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.message-body p {
+  margin: 6px 0;
+}
+.message-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: lightgrey;
+}
+
+</style>

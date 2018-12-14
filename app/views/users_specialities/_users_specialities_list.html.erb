@@ -1,90 +1,172 @@
-<div>
+<div class="col-md-6">
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#liste" aria-controls="liste" role="tab" data-toggle="tab">Listes</a>
-    </li>
+   <% users_specialities.each do |user_speciality| %>
 
-    <li role="presentation">
-      <a href="#carte" aria-controls="carte" role="tab" data-toggle="tab">Carte</a>
-    </li>
-  </ul>
+   <% if user_speciality.user.photo.file.nil? %>
+   <% imag_profil = image_path("default-user.jpg") %>
+   <% else %>
+   <% imag_profil = cl_image_path(user_speciality.user.photo) %>
+   <% end %>
 
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="liste">
-
-
-      <% users_specialities.each do |user_speciality| %>
-        <div class="col-sm-4 col-md-3">
-          <div class="thumbnail">
-            <% if !user_speciality.user.photo.blank? then %>
-
-              <%= cl_image_tag user_speciality.user.photo %>
-            <% else %>
-
-              <img src="<%= asset_path 'default-user.jpg' %>" style="height:200px"/>
-            <% end %>
-
-            <div class="caption">
-              <h4><%= user_speciality.user.email %></h4>
-              <p>Punctuation: <%= user_speciality.avg_punctuation %></p>
-              <p>Efficacy: <%= user_speciality.avg_efficacy %></p>
-              <p>Behaviour: <%= user_speciality.avg_behaviour %></p>
-
-
-              <p><%= link_to 'Voir profile', user_profile_show_path(user_speciality.user), class: "btn btn-default" %> </p>
-            </div>
-          </div>
-        </div>
-
+<div class="message"  style="background: #e1ecf2">
+  <% if !user_speciality.user.photo.blank? then %>
+      <%= cl_image_tag user_speciality.user.photo  %>
+      <% else %>
+      <img src="<%= asset_path 'default-user.jpg' %>" class="avatar-large"  style="height:150px"/>
       <% end %>
 
-    </div>
+         <% ap = user_speciality.avg_punctuation*100/5 %>
+         <% ae = user_speciality.avg_efficacy*100/5 %>
+         <% ab = user_speciality.avg_behaviour*100/5 %>
+
+  <div class="message-body">
+    <h2><%= user_speciality.user.first_name %> <%= user_speciality.user.last_name %></h2>
+         <div><strong>Email:</strong>
+            <%= user_speciality.user.email %>
+         </div>
+         <div><strong>Numéro Tél:</strong>
+            <%= user_speciality.user.phone_number %>
+         </div>
+         <div><strong>Adress:</strong>
+            <%= user_speciality.user.city %> <%= user_speciality.user.address %>
+         </div>
+
+         <div> <strong>Ponctualité:</strong>
+
+            <div style="display: inline-block;" class="star-ratings-sprite"><span style="width: <%= ap %>%" class="star-ratings-sprite-rating"></span></div>
+         </div>
+
+         <div> <strong>Efficacité:</strong>
+
+            <div style="display: inline-block;" class="star-ratings-sprite"><span style="width: <%= ae %>%" class="star-ratings-sprite-rating"></span></div>
+         </div>
 
 
-    <div role="tabpanel" class="tab-pane " id="carte">
-      <div id="map" style="width: 1300px; height: 740px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
-      </div>
+         <div> <strong>Comportement:</strong>
 
-    </div>
+            <div style="display: inline-block;" class="star-ratings-sprite"><span style="width: <%= ab %>%" class="star-ratings-sprite-rating"></span></div>
+         </div>
+            <div><%= link_to 'Voir profile', user_profile_show_path(user_speciality.user), class: "btn btn-primary" %>
+          </div>
+
   </div>
+<!--   <div class="message-status">
+    <p class="status pending">Pending</p>
+    <p class="price">€345</p>
+  </div> -->
+</div>
 
+<div style="padding: 10px"></div>
+
+  <% end %>
 
 </div>
 
+
+<div class="col-md-6">
+<div id="map" style="width: 1300px; height: 740px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+</div>
+</div>
+
+
+
+
+
 <%= content_for :css_content do %>
-  <%= stylesheet_pack_tag "map" %>
-  <style>
-
-    #marker {
-      background-image: url('https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png');
-      background-size: cover;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-  </style>
-
-
+<%= stylesheet_pack_tag "map" %>
+<style>
+   #marker {
+   background-image: url('https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png');
+   background-size: cover;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   cursor: pointer;
+   }
+</style>
 <% end %>
+
 
 
 <%= content_for :js_content do %>
-  <%= javascript_pack_tag "map" %>
+<%= javascript_pack_tag "map" %>
 <script>
-setInterval( function() {
-window.dispatchEvent(new Event('resize'))
-},100)
- </script>
+   setInterval( function() {
+   window.dispatchEvent(new Event('resize'))
+   },100)
 
-
+</script>
 <% end %>
 
+<style>
+   .message {
+   display: flex;
+   align-items: center;
+   padding: 20px;
+   border-bottom: 1px solid rgba(220,224,244,0.4);
+   }
+   .message:last-child {
+   border-bottom: none;
+   }
+   .message-body {
+   flex-grow: 1;
+   }
+   .message-name {
+   padding-left: 10px;
+   min-width: 100px;
+   }
+   .message-name h3 {
+   font-size: 13px;
+   margin-bottom: 0px;
+   }
+   .message-name p {
+   font-size: 13px;
+   font-weight: lighter;
+   opacity: 0.6;
+   margin-top: 5px;
+   }
+   .message-body {
+   padding-left: 10px;
+   font-size: 13px;
+   color: rgba(0,0,0,0.7);
+   }
+   .message-body {
+   padding-left: 20px;
+   color: rgba(0,0,0,0.4);
+   }
+   .message-body strong{
+   color: rgba(0,0,0,0.9);
+   color: rgba(0,0,0,0.9);
+   }
+   .message-body p {
+   margin: 6px 0;
+   }
+   .message-status {
+   font-size: 14px;
+   font-weight: bold;
+   }
+   .status.accepted {
+   color: #04A366;
+   }
+   .status.declined {
+   color: red;
+   }
+   .status.pending {
+   color: lightgrey;
+   }
 
+   .container {
+
+    width: 95%
+
+
+   }
+
+   body{
+    background-image: none;
+   }
+
+</style>
 
