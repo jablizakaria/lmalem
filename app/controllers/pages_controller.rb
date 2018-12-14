@@ -23,6 +23,10 @@ class PagesController < ApplicationController
 
   def search
     # STEP 1
+session[:search_specialite]=params[:search_specialite]
+session[:search_lieu]=params[:search_lieu]
+
+
     if params[:search_specialite].present? && params[:search_specialite].strip != ""
       session[:search_specialite] = params[:search_specialite]
     end

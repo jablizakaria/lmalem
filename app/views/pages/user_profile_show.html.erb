@@ -11,7 +11,13 @@
 
 <% end %>
 
-<%= link_to 'Retour à la liste', search_path ,:class => 'btn btn-success' , :style => 'margin-top: 10px' %>
+<% @linkss="/search?utf8=%E2%9C%93&search_specialite=#{session[:search_specialite]}&search_lieu=#{session[:search_lieu]}&commit=Chercher" %>
+
+
+<%= link_to 'Retour à la liste', @linkss ,:class => 'btn btn-success' , :style => 'margin-top: 10px' %>
+
+<%#= link_to 'Retour à la liste', search_path ,:class => 'btn btn-success' , :style => 'margin-top: 10px' %>
+
 <p id="notice"><%= notice %></p>
 
  <% if @user.photo.file.nil? %>
