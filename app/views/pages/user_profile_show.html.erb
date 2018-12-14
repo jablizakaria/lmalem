@@ -1,4 +1,5 @@
 <%= content_for :css_content do %>
+
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -13,7 +14,7 @@
 <%= link_to 'Retour à la liste', search_path ,:class => 'btn btn-success' , :style => 'margin-top: 10px' %>
 <p id="notice"><%= notice %></p>
 
- <% if @user.photo.url == nil %>
+ <% if @user.photo.file.nil? %>
    <% imag_profil = image_path("default-user.jpg") %>
    <% else %>
     <% imag_profil = cl_image_path(@user.photo.url) %>
