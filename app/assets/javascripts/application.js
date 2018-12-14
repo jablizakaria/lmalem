@@ -1,4 +1,4 @@
-// require rails-ujs
+//= require rails-ujs
 // require js/jquery
 // require js/jquery.main
 // require moment
