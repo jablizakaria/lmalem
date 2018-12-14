@@ -3,7 +3,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700%7CRoboto:400,500,700,900" rel="stylesheet">
 <% end %>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<%= content_for :js_content_exp do %>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js" ></script>
+
+<% end %>
+
+
 
 <!-- main of the page -->
 <main id="main">
@@ -155,7 +162,7 @@
 
 
 
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDbdhrGL62_fFR-hckf74ihwPLkmrZLLSQ&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbdhrGL62_fFR-hckf74ihwPLkmrZLLSQ&libraries=places"></script>
   <script>
 
     (function () {
